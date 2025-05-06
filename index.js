@@ -843,7 +843,7 @@ try {
     [`${projectPath}/src/scss/utilities/_variables.scss`, variablesContent],
 
     // SCSS Vendors
-    [`${projectPath}/src/scss/vendors/__utilities-dir.scss`, vendorsDirContent],
+    [`${projectPath}/src/scss/vendors/__vendors-dir.scss`, vendorsDirContent],
     [`${projectPath}/src/scss/vendors/bootstrap/bootstrap.min.css`, bootstrapMinCssContent],
     [`${projectPath}/src/scss/vendors/owl_carousel/owl.carousel.min.css`, owlCarouselMinCssContent],
     [`${projectPath}/src/scss/vendors/owl_carousel/owl.theme.default.min.css`, owlThemeDefaultMinCssContent],
