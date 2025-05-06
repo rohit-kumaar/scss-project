@@ -2,19 +2,20 @@
 
 A CLI tool to quickly scaffold a structured frontend project with pre-defined directories and starter files for JavaScript, SCSS, assets, and more.
 
+## 🚀 Installation
+
+```bash
+npx scss-project <project-name>
+cd <project-name>
+npm i
+```
+
 ## 📦 Features
 
 - Creates a structured folder layout for frontend development
 - Sets up SCSS architecture (base, layout, components, pages, utilities, vendors)
 - Includes placeholder files like `index.js`, `style.scss`, `index.html`, and `gulpfile.js`
 - Automatically writes `.gitignore` and `package.json`
-
-## 🚀 Installation
-```bash
-npx scss-project <project-name>
-cd <project-name>
-npm i
-```
 
 ## 📁 Folder Structure Generated
 
