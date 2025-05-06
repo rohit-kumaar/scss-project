@@ -1,4 +1,4 @@
-# create-myfolder
+# Create SCSS Folder Structure
 
 A CLI tool to quickly scaffold a structured frontend project with pre-defined directories and starter files for JavaScript, SCSS, assets, and more.
 
@@ -8,48 +8,19 @@ A CLI tool to quickly scaffold a structured frontend project with pre-defined di
 - Sets up SCSS architecture (base, layout, components, pages, utilities, vendors)
 - Includes placeholder files like `index.js`, `style.scss`, `index.html`, and `gulpfile.js`
 - Automatically writes `.gitignore` and `package.json`
-- Uses `chalk` for clean terminal output
-- Optional `--force` flag to overwrite existing project directory
 
 ## 🚀 Installation
 
 ### Option 1: Local
 
-Clone this repo or save the script file:
-
 ```bash
-chmod +x create-myfolder.js
-npm install
-```
-
-### Option 2: Global (for CLI usage)
-
-```bash
-npm link
-```
-
-## 🛠️ Usage
-
-```bash
-create-myfolder <project-name>
-```
-
-Example:
-
-```bash
-create-myfolder my-awesome-project
-```
-
-If the folder already exists, use the `--force` flag to overwrite:
-
-```bash
-create-myfolder my-awesome-project --force
+npx scss-project <project-name>
 ```
 
 ## 📁 Folder Structure Generated
 
 ```
-my-awesome-project/
+my-scss-project/
 ├── .gitignore
 ├── gulpfile.js
 ├── index.html
