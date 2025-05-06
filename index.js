@@ -346,9 +346,138 @@ const styleScssContent = `@charset 'utf-8';
 @import "pages/__pages-dir.scss";
 `;
 
+const baseDirContent = `@import "base";
+@import "typography";
+`;
+
+const baseContent = `html {
+  box-sizing: border-box;
+  font-size: 16px;
+  color-scheme: light dark;
+}
+
+body {
+  color: $black;
+  background: $white;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+}
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul,
+figure,
+blockquote {
+  padding: 0;
+  margin: 0;
+  font-weight: 400;
+}
+
+img,
+picture,
+svg {
+  max-width: 100%;
+  width: auto;
+  height: auto;
+}
+
+img {
+  font-style: italic;
+  vertical-align: middle;
+  background-repeat: no-repeat;
+  background-size: cover;
+  shape-margin: 16px;
+}
+`;
+
+const componentsDirContent = `@import "button";
+@import "dropdown";
+`;
+
+const layoutDirContent = `@import "footer";
+@import "header";
+@import "main";
+@import "navigation";
+@import "sidebar";
+@import "layout";
+`;
+
+const layoutContent = `// .container {
+//   max-width: 1000px;
+//   width: 100%;
+//   padding-inline: 16px;
+//   margin-inline: auto;
+// }
+
+.container {
+  --content: 1200px;
+  --mw: 100%;
+  --px: calc(15px * 2);
+
+  width: min(var(--mw) - var(--px), var(--content));
+  padding-inline: 0 !important; // if bootstrap install
+  margin-inline: auto;
+}
+
+.grid-container {
+  --width: 1200px;
+  --px: 15px;
+
+  display: grid;
+  grid-template-columns:
+    [full-width-start] minmax(var(--px), 1fr)
+    [container-start]
+    min(100% - (var(--px) * 2), var(--width))
+    [container-end]
+    minmax(var(--px), 1fr) [full-width-end];
+
+  > * {
+    grid-column: container;
+  }
+
+  > .full-width {
+    grid-column: full-width;
+  }
+}
+
+.grid-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-auto-rows: 200px;
+  gap: 20px;
+}
+`;
+
+const pagesDirContent = `@import "contact";
+@import "login";
+`;
+
+const utilitiesDirContent = `@import "variables";
+@import "extend";
+@import "function";
+@import "icons";
+@import "mixins";
+@import "utils";
+`;
+
 // ========== Utility Functions ==========
 function writeFile(filePath, content) {
   fs.writeFileSync(filePath, content, "utf8");
+  console.log(chalk.gray(`📝 ${filePath}`));
 }
 
 function createFolders(paths) {
@@ -359,54 +488,79 @@ function createFolders(paths) {
 try {
   if (fs.existsSync(projectPath)) {
     if (!forceFlag) {
-      console.log(
-        chalk.red(
-          `❌ Folder "${projectName}" already exists. Use --force to overwrite.`
-        )
-      );
+      console.log(chalk.red(`❌ Folder "${projectName}" already exists. Use --force to overwrite.`));
       process.exit(1);
     } else {
       fs.rmSync(projectPath, { recursive: true, force: true });
     }
   }
 
-  // Directory Structure
-  const srcPath = path.join(projectPath, "src");
-  const jsPath = path.join(srcPath, "js");
-  const scssPath = path.join(srcPath, "scss");
-
+  // === Directory Structure ===
   const directories = [
-    srcPath,
-    path.join(srcPath, "fonts"),
-    path.join(srcPath, "icons"),
-    path.join(srcPath, "images"),
-    jsPath,
-    path.join(jsPath, "bootstrap"),
-    path.join(jsPath, "jquery"),
-    path.join(jsPath, "owl_carousel"),
-    scssPath,
-    path.join(scssPath, "base"),
-    path.join(scssPath, "components"),
-    path.join(scssPath, "layout"),
-    path.join(scssPath, "pages"),
-    path.join(scssPath, "utilities"),
-    path.join(scssPath, "vendors"),
+    `${projectPath}/src/fonts`,
+    `${projectPath}/src/icons`,
+    `${projectPath}/src/images`,
+    `${projectPath}/src/js`,
+    `${projectPath}/src/js/bootstrap`,
+    `${projectPath}/src/js/jquery`,
+    `${projectPath}/src/js/owl_carousel`,
+    `${projectPath}/src/scss/base`,
+    `${projectPath}/src/scss/components`,
+    `${projectPath}/src/scss/layout`,
+    `${projectPath}/src/scss/pages`,
+    `${projectPath}/src/scss/utilities`,
+    `${projectPath}/src/scss/vendors`,
   ];
 
   createFolders(directories);
 
-  // Write Files
-  writeFile(path.join(jsPath, "index.js"), indexJsContent);
-  writeFile(path.join(scssPath, "style.scss"), styleScssContent);
-  writeFile(path.join(projectPath, ".gitignore"), gitignoreContent);
-  writeFile(path.join(projectPath, "gulpfile.js"), gulpFileContent);
-  writeFile(path.join(projectPath, "index.html"), indexHtmlContent);
-  writeFile(path.join(projectPath, "package.json"), packageContent);
+  // === File Definitions ===
+  const files = [
+    // JS
+    [`${projectPath}/src/js/index.js`, indexJsContent],
+
+    // SCSS Main Entry
+    [`${projectPath}/src/scss/style.scss`, styleScssContent],
+
+    // SCSS Base
+    [`${projectPath}/src/scss/base/__base-dir.scss`, baseDirContent],
+    [`${projectPath}/src/scss/base/_base.scss`, baseContent],
+    [`${projectPath}/src/scss/base/_typography.scss`, ``],
+
+    // SCSS Components
+    [`${projectPath}/src/scss/components/__components-dir.scss`, componentsDirContent],
+    [`${projectPath}/src/scss/components/_button.scss`, ``],
+    [`${projectPath}/src/scss/components/_dropdown.scss`, ``],
+
+    // SCSS Layout
+    [`${projectPath}/src/scss/layout/__layout-dir.scss`, layoutDirContent],
+    [`${projectPath}/src/scss/layout/_footer.scss`, ``],
+    [`${projectPath}/src/scss/layout/_header.scss`, ``],
+    [`${projectPath}/src/scss/layout/_layout.scss`, layoutContent],
+    [`${projectPath}/src/scss/layout/_main.scss`, ``],
+    [`${projectPath}/src/scss/layout/_navigation.scss`, ``],
+    [`${projectPath}/src/scss/layout/_sidebar.scss`, ``],
+
+    // SCSS Pages
+    [`${projectPath}/src/scss/pages/__pages-dir.scss`, pagesDirContent],
+    [`${projectPath}/src/scss/pages/_contact.scss`, ``],
+    [`${projectPath}/src/scss/pages/_login.scss`, ``],
+
+    // SCSS utilities
+    [`${projectPath}/src/scss/utilities/__utilities-dir.scss`, utilitiesDirContent],
+    [`${projectPath}/src/scss/utilities/`, ``],
+
+    // Root Level
+    [`${projectPath}/.gitignore`, gitignoreContent],
+    [`${projectPath}/gulpfile.js`, gulpFileContent],
+    [`${projectPath}/index.html`, indexHtmlContent],
+    [`${projectPath}/package.json`, packageContent],
+  ];
+
+  files.forEach(([filePath, content]) => writeFile(filePath, content));
 
   console.log(chalk.green(`✅ Project "${projectName}" created successfully!`));
 } catch (err) {
-  console.error(
-    chalk.red(`❌ Error creating project "${projectName}": ${err.message}`)
-  );
+  console.error(chalk.red(`❌ Error creating project "${projectName}": ${err.message}`));
   process.exit(1);
 }
