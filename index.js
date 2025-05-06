@@ -474,6 +474,228 @@ const utilitiesDirContent = `@import "variables";
 @import "utils";
 `;
 
+const functionContent = `// Convert px to rem Start
+@function strip-unit($num) {
+  @return calc($num / ($num * 0 + 1));
+}
+
+@function rem($pixels) {
+  @return calc(strip-unit($pixels) / $base-rem) * 1rem;
+}
+
+// Convert px to rem End
+
+
+/* -------------------------- */
+/* Start : Generate Font Size */
+/* -------------------------- */
+// https://utopia.fyi/type/calculator/
+
+$screen-min-width: 320;
+$screen-max-width: 1440;
+$screen-vw: 100vw;
+$fluid-bp: calc(($screen-vw - $screen-min-width / 16 * 1rem) / ($screen-max-width - $screen-min-width));
+
+@function fs($fs-min, $fs-max) {
+  @return calc((($fs-min / 16) * 1rem) + ($fs-max - $fs-min) * $fluid-bp);
+}
+
+/* ------------------------ */
+/* End : Generate Font Size */
+/* ------------------------ */`;
+
+const mixinsContent = `@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/mixins";
+
+@mixin transition($props1, $props2: _) {
+  transition: $props1 1s ease-in-out, $props2 1s ease-in-out;
+}
+
+@mixin backgroundImage($props, $extension) {
+  background: url(../images/#{$props}.#{$extension}) no-repeat center center/cover;
+}
+
+/* --------------------------------- */
+/* Start : If Bootstrap not install  */
+/* --------------------------------- */
+// $breakpoints-up: (
+//   sm: 576px,
+//   md: 768px,
+//   lg: 992px,
+//   xl: 1200px,
+//   xxl: 1400px,
+// ) !default;
+
+// @mixin media-breakpoint-up($size) {
+//   @media screen and (min-width: map-get($breakpoints-up, $size)) {
+//     @content;
+//   }
+// }
+/* ------------------------------- */
+/* End : If Bootstrap not install  */
+/* ------------------------------- */`;
+
+const utilsContent = `/* ------------------- */
+/* Colors Start        */
+/* ------------------- */
+$colors: (
+  primary: (
+    50: hsl(0, 86%, 97%),
+    100: hsl(0, 93%, 94%),
+    200: hsl(0, 96%, 89%),
+    300: hsl(0, 94%, 82%),
+    400: hsl(0, 91%, 71%),
+    500: hsl(0, 84%, 60%),
+    600: hsl(0, 72%, 51%),
+    700: hsl(0, 74%, 42%),
+    800: hsl(0, 70%, 35%),
+    900: hsl(0, 63%, 31%),
+  ),
+);
+
+// @each key, value in $colors
+@each $color, $shades in $colors {
+  @each $shade, $value in $shades {
+    .bg-#{$color}-#{$shade} {
+      background-color: $value;
+    }
+  }
+}
+
+@each $color, $shades in $colors {
+  @each $shade, $value in $shades {
+    .text-#{$color}-#{$shade} {
+      color: $value;
+    }
+  }
+}
+
+/* ------------------- */
+/* Font weights Start  */
+/* ------------------- */
+$fonts-weights: (
+  weights: (
+    400: $fw-400,
+    500: $fw-500,
+    600: $fw-600,
+    700: $fw-700,
+    800: $fw-800,
+    900: $fw-900,
+  ),
+);
+
+@each $fonts-weight, $weights in $fonts-weights {
+  @each $weight, $value in $weights {
+    .fw-#{$value} {
+      font-weight: $value;
+    }
+  }
+}
+
+/* ------------------- */
+/* Font sizes Start    */
+/* ------------------- */
+$font-sizes: (
+  fonts: (
+    "10": $fs-10,
+    "11": $fs-11,
+    "12": $fs-12,
+    "13": $fs-13,
+    "14": $fs-14,
+    "15": $fs-15,
+  ),
+);
+
+@each $fonts-size, $fonts in $font-sizes {
+  @each $font, $value in $fonts {
+    .fs-#{$font} {
+      font-size: $value;
+    }
+  }
+}
+
+/* ------------------- */
+/* Z-index             */
+/* ------------------- */
+$z-indexes: (
+  indexes: (
+    -1: $z-index0,
+    1: $z-index1,
+    2: $z-index2,
+    3: $z-index3,
+    4: $z-index4,
+    5: $z-index5,
+  ),
+);
+
+@each $z-index, $indexes in $z-indexes {
+  @each $index, $value in $indexes {
+    .z-#{$value} {
+      z-index: $value;
+    }
+  }
+}
+`;
+
+const variablesContent = `/* ------------------- */
+/* Font sizes          */
+/* ------------------- */
+$fs-10: 10px;
+$fs-11: 11px;
+$fs-12: 12px;
+$fs-13: 13px;
+$fs-14: 14px;
+$fs-15: 15px;
+$fs-16: 16px;
+
+/* ------------------- */
+/* Font family         */
+/* ------------------- */
+$ff-serif: "Montserrat", sans-serif;
+
+/* ------------------- */
+/* Colors              */
+/* ------------------- */
+$black: hsl(0, 0%, 0%);
+$white: hsl(0, 0%, 100%);
+
+/* ------------------- */
+/* Font weight         */
+/* ------------------- */
+$fw-400: 400;
+$fw-500: 500;
+$fw-600: 600;
+$fw-700: 700;
+$fw-800: 800;
+$fw-900: 900;
+
+/* ------------------- */
+/* Z-index             */
+/* ------------------- */
+$z-index0: -1;
+$z-index1: 1;
+$z-index2: 2;
+$z-index3: 3;
+$z-index4: 4;
+$z-index5: 5;
+
+/* ------------------- */
+/* Font Path           */
+/* ------------------- */
+$fonts-path: "../fonts" !default;
+
+/* ------------------- */
+/* Image Path          */
+/* ------------------- */
+$images-path: "../images" !default;
+
+/* ------------------- */
+/* Convert px to rem   */
+/* ------------------- */
+$base-rem: 16 !default;
+`;
+
 // ========== Utility Functions ==========
 function writeFile(filePath, content) {
   fs.writeFileSync(filePath, content, "utf8");
@@ -548,7 +770,12 @@ try {
 
     // SCSS utilities
     [`${projectPath}/src/scss/utilities/__utilities-dir.scss`, utilitiesDirContent],
-    [`${projectPath}/src/scss/utilities/`, ``],
+    [`${projectPath}/src/scss/utilities/_extend.scss`, ``],
+    [`${projectPath}/src/scss/utilities/_function.scss`, functionContent],
+    [`${projectPath}/src/scss/utilities/_icons.scss`, ``],
+    [`${projectPath}/src/scss/utilities/_mixins.scss`, mixinsContent],
+    [`${projectPath}/src/scss/utilities/_utils.scss`, utilsContent],
+    [`${projectPath}/src/scss/utilities/_variables.scss`, variablesContent],
 
     // Root Level
     [`${projectPath}/.gitignore`, gitignoreContent],
