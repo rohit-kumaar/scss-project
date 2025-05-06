@@ -10,11 +10,10 @@ A CLI tool to quickly scaffold a structured frontend project with pre-defined di
 - Automatically writes `.gitignore` and `package.json`
 
 ## 🚀 Installation
-
-### Option 1: Local
-
 ```bash
 npx scss-project <project-name>
+cd <project-name>
+npm i
 ```
 
 ## 📁 Folder Structure Generated
