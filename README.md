@@ -8,6 +8,7 @@ scss-project is a command-line tool that helps you quickly set up a ready-to-use
 npx scss-project <project-name>
 cd <project-name>
 npm i
+npm start
 ```
 
 ## 📦 Features
