@@ -15,7 +15,6 @@ import { indexHtmlContent } from "./content/indexHtmlContent.js";
 import { indexJsContent } from "./content/indexJsContent.js";
 import { layoutContent } from "./content/layoutContent.js";
 import { layoutDirContent } from "./content/layoutDirContent.js";
-import { mixinsContent } from "./content/mixinsContent.js";
 import { pagesDirContent } from "./content/pagesDirContent.js";
 import { styleScssContent } from "./content/styleScssContent.js";
 import { utilitiesDirContent } from "./content/utilitiesDirContent.js";
@@ -162,7 +161,7 @@ try {
     [`${projectPath}/src/scss/utilities/_extend.scss`, extendContent],
     [`${projectPath}/src/scss/utilities/_function.scss`, functionContent],
     [`${projectPath}/src/scss/utilities/_icons.scss`, ``],
-    [`${projectPath}/src/scss/utilities/_mixins.scss`, mixinsContent],
+    [`${projectPath}/src/scss/utilities/_mixins.scss`, ``],
     [`${projectPath}/src/scss/utilities/_utils.scss`, utilsContent],
     [`${projectPath}/src/scss/utilities/_variables.scss`, variablesContent],
 
