@@ -57,9 +57,10 @@ const packageContent = `{
     "gulp-csso": "^4.0.1",
     "gulp-merge-media-queries": "^0.2.1",
     "gulp-minify": "^3.1.0",
-    "gulp-sass": "^5.1.0",
+    "gulp-sass": "^6.0.1",
     "gulp-sourcemaps": "^3.0.0",
-    "sass": "^1.54.5"
+    "sass": "^1.54.5",
+    "gulp-dart-sass": "^1.1.0"
   }
 }`;
 
