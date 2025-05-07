@@ -1,3 +1,3 @@
-export const pagesDirContent = `@import "contact";
-@import "login";
+export const pagesDirContent = `@use "contact";
+@use "login";
 `;

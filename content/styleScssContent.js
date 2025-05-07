@@ -1,9 +1,9 @@
 export const styleScssContent = `@charset 'utf-8';
 // Don't change the import folder links
-@import "vendors/__vendors-dir.scss";
-@import "utilities/__utilities-dir.scss";
-@import "base/__base-dir.scss";
-@import "components/__components-dir.scss";
-@import "layout/__layout-dir.scss";
-@import "pages/__pages-dir.scss";
+@use "vendors/__vendors-dir.scss";
+@use "utilities/__utilities-dir.scss";
+@use "base/__base-dir.scss";
+@use "components/__components-dir.scss";
+@use "layout/__layout-dir.scss";
+@use "pages/__pages-dir.scss";
 `;

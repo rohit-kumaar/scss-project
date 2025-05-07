@@ -1,3 +1,3 @@
-export const componentsDirContent = `@import "button";
-@import "dropdown";
+export const componentsDirContent = `@use "button";
+@use "dropdown";
 `;

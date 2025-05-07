@@ -1,6 +1,6 @@
-export const mixinsContent = `@import "node_modules/bootstrap/scss/functions";
-@import "node_modules/bootstrap/scss/variables";
-@import "node_modules/bootstrap/scss/mixins";
+export const mixinsContent = `@use "node_modules/bootstrap/scss/functions";
+@use "node_modules/bootstrap/scss/variables";
+@use "node_modules/bootstrap/scss/mixins";
 
 @mixin transition($props1, $props2: _) {
   transition: $props1 1s ease-in-out, $props2 1s ease-in-out;

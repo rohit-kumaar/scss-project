@@ -1,7 +1,7 @@
-export const layoutDirContent = `@import "footer";
-@import "header";
-@import "main";
-@import "navigation";
-@import "sidebar";
-@import "layout";
+export const layoutDirContent = `@use "footer";
+@use "header";
+@use "main";
+@use "navigation";
+@use "sidebar";
+@use "layout";
 `;

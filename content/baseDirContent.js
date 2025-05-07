@@ -1,3 +1,3 @@
-export const baseDirContent = `@import "base";
-@import "typography";
+export const baseDirContent = `@use "base";
+@use "typography";
 `;

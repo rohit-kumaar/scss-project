@@ -1,4 +1,7 @@
-export const utilsContent = `/* ------------------- */
+export const utilsContent = `
+@use "variables" as *;
+
+/* ------------------- */
 /* Colors Start        */
 /* ------------------- */
 $colors: (
@@ -98,4 +101,8 @@ $z-indexes: (
     }
   }
 }
+
+
+
+
 `;
