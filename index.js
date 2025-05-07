@@ -113,6 +113,26 @@ try {
 
   createFolders(directories);
 
+  // === Copy Icons AFTER creating folders ===
+  const sourceIconsDir = path.join(__dirname, "icons");
+  const targetIconsDir = path.join(projectPath, "src/icons");
+
+  if (fs.existsSync(sourceIconsDir)) {
+    const iconFiles = fs.readdirSync(sourceIconsDir);
+    iconFiles.forEach((file) => {
+      const src = path.join(sourceIconsDir, file);
+      const dest = path.join(targetIconsDir, file);
+      fs.copyFileSync(src, dest);
+      console.log(chalk.gray(`🖼️  Copied ${file} to src/icons/`));
+    });
+  } else {
+    console.warn(
+      chalk.yellow(
+        "⚠️  No 'icons' directory found in your CLI project to copy icons."
+      )
+    );
+  }
+
   // === File Definitions ===
   const files = [
     // CSS

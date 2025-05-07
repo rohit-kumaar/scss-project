@@ -1,4 +1,5 @@
-export const indexHtmlContent = `<!DOCTYPE html>
+export const indexHtmlContent = `
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -10,6 +11,16 @@ export const indexHtmlContent = `<!DOCTYPE html>
 
     <!-- Favicon Start  -->
     <link rel="icon" href="src/icons/favicon.ico" type="image/x-icon" />
+    <link
+      rel="android-chrome"
+      sizes="192x192"
+      href="src/icons/android-chrome-192x192.png"
+    />
+    <link
+      rel="android-chrome"
+      sizes="512x192"
+      href="src/icons/android-chrome-512x512.png"
+    />
     <link
       rel="apple-touch-icon"
       sizes="180x180"
@@ -57,4 +68,6 @@ export const indexHtmlContent = `<!DOCTYPE html>
     <!-- Custom JS End -->
   </body>
 </html>
+
+
 `;
