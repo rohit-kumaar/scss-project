@@ -49,7 +49,16 @@ export const indexHtmlContent = `
   <body>
     <div class="container">
       <div class="wrapper">
-        <h1 class="bg-primary-700 text-white-900">
+        <h1
+          class="bg-primary-700 text-white-900"
+          style="
+            display: grid;
+            place-items: center;
+            height: 100dvh;
+            padding: 30px;
+            font-size: clamp(0.6875rem, -0.0582rem + 3.7285vw, 3.125rem);
+          "
+        >
           Welcome! This is your SCSS project.
         </h1>
       </div>
@@ -69,7 +78,6 @@ export const indexHtmlContent = `
     <!-- Custom JS End -->
   </body>
 </html>
-
 
 
 `;
