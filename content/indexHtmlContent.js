@@ -49,8 +49,9 @@ export const indexHtmlContent = `
   <body>
     <div class="container">
       <div class="wrapper">
-        <span class="material-icons-sharp"> home </span>
-        <h1 class="bg-primary-700 text-white-900 p-3">hello</h1>
+        <h1 class="bg-primary-700 text-white-900">
+          Welcome! This is your SCSS project.
+        </h1>
       </div>
     </div>
 
@@ -68,6 +69,7 @@ export const indexHtmlContent = `
     <!-- Custom JS End -->
   </body>
 </html>
+
 
 
 `;
