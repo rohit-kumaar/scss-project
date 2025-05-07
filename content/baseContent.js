@@ -1,5 +1,4 @@
-export const baseContent = `
-@use "utilities/variables" as *;
+export const baseContent = `@use "utilities/variables" as *;
 
 html {
   box-sizing: border-box;
@@ -46,12 +45,11 @@ svg {
   height: auto;
 }
 
-img {
-  font-style: italic;
-  vertical-align: middle;
-  background-repeat: no-repeat;
-  background-size: cover;
-  shape-margin: 16px;
-}
-
+// img {
+//   font-style: italic;
+//   vertical-align: middle;
+//   background-repeat: no-repeat;
+//   background-size: cover;
+//   shape-margin: 16px;
+// }
 `;
