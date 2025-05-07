@@ -33,6 +33,7 @@ if (!projectName) {
 }
 
 const projectPath = path.join(process.cwd(), projectName);
+const forceFlag = process.argv.includes("--force");
 
 const packageContent = `{
   "name": "${projectName}",
@@ -84,6 +85,9 @@ try {
       );
       process.exit(1);
     } else {
+      console.log(
+        chalk.yellow(`⚠️  Overwriting existing folder "${projectName}"`)
+      );
       fs.rmSync(projectPath, { recursive: true, force: true });
     }
   }
