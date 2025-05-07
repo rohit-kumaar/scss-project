@@ -1,0 +1,45 @@
+export const layoutContent = `// .container {
+    //   max-width: 1000px;
+    //   width: 100%;
+    //   padding-inline: 16px;
+    //   margin-inline: auto;
+    // }
+    
+    .container {
+      --content: 1200px;
+      --mw: 100%;
+      --px: calc(15px * 2);
+    
+      width: min(var(--mw) - var(--px), var(--content));
+      padding-inline: 0 !important; // if bootstrap install
+      margin-inline: auto;
+    }
+    
+    .grid-container {
+      --width: 1200px;
+      --px: 15px;
+    
+      display: grid;
+      grid-template-columns:
+        [full-width-start] minmax(var(--px), 1fr)
+        [container-start]
+        min(100% - (var(--px) * 2), var(--width))
+        [container-end]
+        minmax(var(--px), 1fr) [full-width-end];
+    
+      > * {
+        grid-column: container;
+      }
+    
+      > .full-width {
+        grid-column: full-width;
+      }
+    }
+    
+    .grid-wrapper {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-auto-rows: 200px;
+      gap: 20px;
+    }
+    `;

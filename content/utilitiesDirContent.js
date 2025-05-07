@@ -1,0 +1,7 @@
+export const utilitiesDirContent = `@import "variables";
+@import "extend";
+@import "function";
+@import "icons";
+@import "mixins";
+@import "utils";
+`;

@@ -1,0 +1,31 @@
+export const mixinsContent = `@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/mixins";
+
+@mixin transition($props1, $props2: _) {
+  transition: $props1 1s ease-in-out, $props2 1s ease-in-out;
+}
+
+@mixin backgroundImage($props, $extension) {
+  background: url(../images/#{$props}.#{$extension}) no-repeat center center/cover;
+}
+
+/* --------------------------------- */
+/* Start : If Bootstrap not install  */
+/* --------------------------------- */
+// $breakpoints-up: (
+//   sm: 576px,
+//   md: 768px,
+//   lg: 992px,
+//   xl: 1200px,
+//   xxl: 1400px,
+// ) !default;
+
+// @mixin media-breakpoint-up($size) {
+//   @media screen and (min-width: map-get($breakpoints-up, $size)) {
+//     @content;
+//   }
+// }
+/* ------------------------------- */
+/* End : If Bootstrap not install  */
+/* ------------------------------- */`;
