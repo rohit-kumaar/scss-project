@@ -65,8 +65,12 @@ const packageContent = `{
 
 // ========== Utility Functions ==========
 function writeFile(filePath, content) {
-  fs.writeFileSync(filePath, content, "utf8");
-  console.log(chalk.gray(`📝 ${filePath}`));
+  try {
+    fs.writeFileSync(filePath, content, "utf8");
+    console.log(chalk.gray(`📝 ${filePath}`));
+  } catch (err) {
+    console.error(chalk.red(`❌ Failed to write ${filePath}: ${err.message}`));
+  }
 }
 
 function createFolders(paths) {
