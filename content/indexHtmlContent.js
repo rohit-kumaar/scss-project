@@ -1,4 +1,5 @@
 export const indexHtmlContent = `
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -50,7 +51,7 @@ export const indexHtmlContent = `
     <div class="container">
       <div class="wrapper">
         <h1
-          class="bg-primary-700 text-white-900"
+          class="bg-primary-700 text-primary-50"
           style="
             display: grid;
             place-items: center;
@@ -78,6 +79,7 @@ export const indexHtmlContent = `
     <!-- Custom JS End -->
   </body>
 </html>
+
 
 
 `;

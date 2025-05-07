@@ -5,7 +5,7 @@ export const baseContent = `html {
   }
   
   body {
-    color: $white;
+    color: $black;
     background: $white;
     font-family: "Montserrat", sans-serif;
     font-weight: 400;
