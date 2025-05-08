@@ -27,7 +27,7 @@ const __dirname = path.dirname(__filename);
 const projectName = process.argv[2];
 
 if (!projectName) {
-  console.log("❗ Usage: create-myfolder <project-name>");
+  console.log("❗ Usage: scss-project <project-name>");
   process.exit(1);
 }
 
