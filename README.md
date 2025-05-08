@@ -1,3 +1,8 @@
+
+# Project Title
+
+A brief description of what this project does and who it's for
+
 # Create SCSS Folder Structure
 
 scss-project is a command-line tool that helps you quickly set up a ready-to-use frontend project. It creates a clean folder structure with organized SCSS files, along with starter files for HTML, JavaScript, and Gulp tasks. This makes it easy to start building modern websites with a clear and maintainable layout.
@@ -17,6 +22,47 @@ npm start
 - Sets up SCSS architecture (base, layout, components, pages, utilities, vendors)
 - Includes placeholder files like `index.js`, `style.scss`, `index.html`, and `gulpfile.js`
 - Automatically writes `.gitignore` and `package.json`
+- Optimized media query output:
+ When the same media query is used across different SCSS classes, it gets grouped into a single block in the final CSS after compilation.
+
+ ```
+ .card {
+  padding: 1rem;
+
+  @media (max-width: 768px) {
+    padding: 0.5rem;
+  }
+}
+
+.header {
+  font-size: 2rem;
+
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+  }
+}
+
+ ```
+ Compiles to:
+ ```
+ .card {
+  padding: 1rem;
+}
+
+.header {
+  font-size: 2rem;
+}
+
+@media (max-width: 768px) {
+  .card {
+    padding: 0.5rem;
+  }
+  .header {
+    font-size: 1.5rem;
+  }
+}
+
+ ```
 
 ## 📁 Folder Structure Generated
 
