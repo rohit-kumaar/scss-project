@@ -13,10 +13,10 @@ import { gitignoreContent } from "./content/gitignoreContent.js";
 import { gulpFileContent } from "./content/gulpFileContent.js";
 import { indexHtmlContent } from "./content/indexHtmlContent.js";
 import { indexJsContent } from "./content/indexJsContent.js";
-import { layoutContent } from "./content/layoutContent.js";
 import { layoutDirContent } from "./content/layoutDirContent.js";
 import { pagesDirContent } from "./content/pagesDirContent.js";
 import { styleScssContent } from "./content/styleScssContent.js";
+import { useUtils } from "./content/useUtils.js";
 import { utilitiesDirContent } from "./content/utilitiesDirContent.js";
 import { utilsContent } from "./content/utilsContent.js";
 import { variablesContent } from "./content/variablesContent.js";
@@ -154,29 +154,29 @@ try {
     // SCSS Base
     [`${projectPath}/src/scss/base/__base-dir.scss`, baseDirContent],
     [`${projectPath}/src/scss/base/_base.scss`, baseContent],
-    [`${projectPath}/src/scss/base/_typography.scss`, ``],
+    [`${projectPath}/src/scss/base/_typography.scss`, useUtils],
 
     // SCSS Components
     [
       `${projectPath}/src/scss/components/__components-dir.scss`,
       componentsDirContent,
     ],
-    [`${projectPath}/src/scss/components/_button.scss`, ``],
-    [`${projectPath}/src/scss/components/_dropdown.scss`, ``],
+    [`${projectPath}/src/scss/components/_button.scss`, useUtils],
+    [`${projectPath}/src/scss/components/_dropdown.scss`, useUtils],
 
     // SCSS Layout
     [`${projectPath}/src/scss/layout/__layout-dir.scss`, layoutDirContent],
-    [`${projectPath}/src/scss/layout/_footer.scss`, ``],
-    [`${projectPath}/src/scss/layout/_header.scss`, ``],
-    [`${projectPath}/src/scss/layout/_layout.scss`, layoutContent],
-    [`${projectPath}/src/scss/layout/_main.scss`, ``],
-    [`${projectPath}/src/scss/layout/_navigation.scss`, ``],
-    [`${projectPath}/src/scss/layout/_sidebar.scss`, ``],
+    [`${projectPath}/src/scss/layout/_footer.scss`, useUtils],
+    [`${projectPath}/src/scss/layout/_header.scss`, useUtils],
+    [`${projectPath}/src/scss/layout/_layout.scss`, useUtils],
+    [`${projectPath}/src/scss/layout/_main.scss`, useUtils],
+    [`${projectPath}/src/scss/layout/_navigation.scss`, useUtils],
+    [`${projectPath}/src/scss/layout/_sidebar.scss`, useUtils],
 
     // SCSS Pages
     [`${projectPath}/src/scss/pages/__pages-dir.scss`, pagesDirContent],
-    [`${projectPath}/src/scss/pages/_contact.scss`, ``],
-    [`${projectPath}/src/scss/pages/_login.scss`, ``],
+    [`${projectPath}/src/scss/pages/_contact.scss`, useUtils],
+    [`${projectPath}/src/scss/pages/_login.scss`, useUtils],
 
     // SCSS Utilities
     [
@@ -185,7 +185,6 @@ try {
     ],
     [`${projectPath}/src/scss/utilities/_extend.scss`, extendContent],
     [`${projectPath}/src/scss/utilities/_function.scss`, functionContent],
-    [`${projectPath}/src/scss/utilities/_icons.scss`, ``],
     [`${projectPath}/src/scss/utilities/_mixins.scss`, ``],
     [`${projectPath}/src/scss/utilities/_utils.scss`, utilsContent],
     [`${projectPath}/src/scss/utilities/_variables.scss`, variablesContent],
