@@ -13,6 +13,7 @@ import { gitignoreContent } from "./content/gitignoreContent.js";
 import { gulpFileContent } from "./content/gulpFileContent.js";
 import { indexHtmlContent } from "./content/indexHtmlContent.js";
 import { indexJsContent } from "./content/indexJsContent.js";
+import { layoutContent } from "./content/layoutContent.js";
 import { layoutDirContent } from "./content/layoutDirContent.js";
 import { pagesDirContent } from "./content/pagesDirContent.js";
 import { styleScssContent } from "./content/styleScssContent.js";
@@ -168,7 +169,7 @@ try {
     [`${projectPath}/src/scss/layout/__layout-dir.scss`, layoutDirContent],
     [`${projectPath}/src/scss/layout/_footer.scss`, useUtils],
     [`${projectPath}/src/scss/layout/_header.scss`, useUtils],
-    [`${projectPath}/src/scss/layout/_layout.scss`, useUtils],
+    [`${projectPath}/src/scss/layout/_layout.scss`, layoutContent],
     [`${projectPath}/src/scss/layout/_main.scss`, useUtils],
     [`${projectPath}/src/scss/layout/_navigation.scss`, useUtils],
     [`${projectPath}/src/scss/layout/_sidebar.scss`, useUtils],
