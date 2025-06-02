@@ -5,6 +5,9 @@ import path from "path";
 import { fileURLToPath } from "url";
 import { baseContent } from "./content/baseContent.js";
 import { baseDirContent } from "./content/baseDirContent.js";
+import { bootstrapBundleMinJsContent } from "./content/bootstrapBundleMinJsContent.js";
+import { bootstrapMinCssContent } from "./content/bootstrapMinCssContent.js";
+import { buttonContent } from "./content/buttonContent.js";
 import { componentsDirContent } from "./content/componentsDirContent.js";
 import { cssContent } from "./content/cssContent.js";
 import { extendContent } from "./content/extendContent.js";
@@ -13,14 +16,21 @@ import { gitignoreContent } from "./content/gitignoreContent.js";
 import { gulpFileContent } from "./content/gulpFileContent.js";
 import { indexHtmlContent } from "./content/indexHtmlContent.js";
 import { indexJsContent } from "./content/indexJsContent.js";
+import { jqueryMinJsContent } from "./content/jqueryMinJsContent.js";
 import { layoutContent } from "./content/layoutContent.js";
 import { layoutDirContent } from "./content/layoutDirContent.js";
+import { owlCarouselMinCssContent } from "./content/owlCarouselMinCssContent.js";
+import { owlCarouselMinJsContent } from "./content/owlCarouselMinJsContent.js";
+import { owlThemeDefaultMinCssContent } from "./content/owlThemeDefaultMinCssContent.js";
 import { pagesDirContent } from "./content/pagesDirContent.js";
 import { styleScssContent } from "./content/styleScssContent.js";
+import { typographyContent } from "./content/typographyContent.js";
+import { uiDirContent } from "./content/uiDirContent.js";
 import { useUtils } from "./content/useUtils.js";
 import { utilitiesDirContent } from "./content/utilitiesDirContent.js";
 import { utilsContent } from "./content/utilsContent.js";
 import { variablesContent } from "./content/variablesContent.js";
+import { vendorsDirContent } from "./content/vendorsDirContent.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -109,6 +119,7 @@ try {
     `${projectPath}/src/js/owl_carousel`,
     `${projectPath}/src/scss/base`,
     `${projectPath}/src/scss/components`,
+    `${projectPath}/src/scss/components/ui`,
     `${projectPath}/src/scss/layout`,
     `${projectPath}/src/scss/pages`,
     `${projectPath}/src/scss/utilities`,
@@ -146,8 +157,9 @@ try {
 
     // JS
     [`${projectPath}/src/js/index.js`, indexJsContent],
-    // [`${projectPath}/src/js/bootstrap/bootstrap.bundle.min.js`, bootstrapBundleMinJsContent],
-    // [`${projectPath}/src/js/jquery/jquery.min.js`, jqueryMinJsContent],
+    [`${projectPath}/src/js/bootstrap/bootstrap.bundle.min.js`,bootstrapBundleMinJsContent],
+    [`${projectPath}/src/js/jquery/jquery.min.js`, jqueryMinJsContent],
+    [`${projectPath}/src/js/owl_carousel/owl.carousel.min.js`, owlCarouselMinJsContent],
 
     // SCSS Main Entry
     [`${projectPath}/src/scss/style.scss`, styleScssContent],
@@ -155,15 +167,16 @@ try {
     // SCSS Base
     [`${projectPath}/src/scss/base/__base-dir.scss`, baseDirContent],
     [`${projectPath}/src/scss/base/_base.scss`, baseContent],
-    [`${projectPath}/src/scss/base/_typography.scss`, useUtils],
+    [`${projectPath}/src/scss/base/_typography.scss`, typographyContent],
 
     // SCSS Components
+    [`${projectPath}/src/scss/components/ui/__ui-dir.scss`, uiDirContent],
+    [`${projectPath}/src/scss/components/ui/_button.scss`, buttonContent],
     [
       `${projectPath}/src/scss/components/__components-dir.scss`,
       componentsDirContent,
     ],
-    [`${projectPath}/src/scss/components/_button.scss`, useUtils],
-    [`${projectPath}/src/scss/components/_dropdown.scss`, useUtils],
+    [`${projectPath}/src/scss/components/_component-name.scss`, useUtils],
 
     // SCSS Layout
     [`${projectPath}/src/scss/layout/__layout-dir.scss`, layoutDirContent],
@@ -176,7 +189,6 @@ try {
 
     // SCSS Pages
     [`${projectPath}/src/scss/pages/__pages-dir.scss`, pagesDirContent],
-    [`${projectPath}/src/scss/pages/_contact.scss`, useUtils],
     [`${projectPath}/src/scss/pages/_login.scss`, useUtils],
 
     // SCSS Utilities
@@ -191,21 +203,18 @@ try {
     [`${projectPath}/src/scss/utilities/_variables.scss`, variablesContent],
 
     // SCSS Vendors
-    [
-      `${projectPath}/src/scss/vendors/__vendors-dir.scss`,
-      /* vendorsDirContent*/ ``,
-    ],
+    [`${projectPath}/src/scss/vendors/__vendors-dir.scss`, vendorsDirContent],
     [
       `${projectPath}/src/scss/vendors/bootstrap/bootstrap.min.css`,
-      /* bootstrapMinCssContent*/ ``,
+      bootstrapMinCssContent,
     ],
     [
       `${projectPath}/src/scss/vendors/owl_carousel/owl.carousel.min.css`,
-      /* owlCarouselMinCssContent*/ ``,
+      owlCarouselMinCssContent,
     ],
     [
       `${projectPath}/src/scss/vendors/owl_carousel/owl.theme.default.min.css`,
-      /* owlThemeDefaultMinCssContent */ ``,
+      owlThemeDefaultMinCssContent,
     ],
 
     // Root Level

@@ -40,12 +40,12 @@ export const indexHtmlContent = `<!DOCTYPE html>
   <!-- End   : main -->
 
   <!-- Start : Owl Carousel -->
-  <!-- <script src="src/js/jquery/jquery.min.js"></script> -->
-  <!-- <script src="src/js/owl_carousel/owl.carousel.min.js"></script> -->
+  <script src="src/js/jquery/jquery.min.js"></script>
+  <script src="src/js/owl_carousel/owl.carousel.min.js"></script>
   <!-- End   : Owl Carousel -->
 
   <!-- Start : Bootstrap  JS -->
-  <!-- <script src="src/js/bootstrap/bootstrap.bundle.min.js"></script> -->
+  <script src="src/js/bootstrap/bootstrap.bundle.min.js"></script> 
   <!-- End   : Bootstrap  JS -->
 
   <!-- Start : Custom JS -->

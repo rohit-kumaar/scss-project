@@ -1,4 +1,6 @@
-export const functionContent = `/* ----------------------------*/
+export const functionContent = `@use "utilities/variables" as *;
+
+/* ----------------------------*/
 /* Start : Convert px to rem   */
 /* ----------------------------*/
 @function strip-unit($num) {
