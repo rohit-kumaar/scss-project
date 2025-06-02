@@ -9,7 +9,7 @@ export const layoutContent = `// .container {
   --content: 1200px;
   --mw: 100%;
   --px: calc(15px * 2);
-
+  max-width: unset !important; // if bootstrap install
   width: min(var(--mw) - var(--px), var(--content));
   padding-inline: 0 !important; // if bootstrap install
   margin-inline: auto;
