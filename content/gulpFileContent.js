@@ -1,5 +1,4 @@
-export const gulpFileContent = `
-const gulp = require("gulp");
+export const gulpFileContent = `const gulp = require("gulp");
 const sass = require("gulp-sass")(require("sass"));
 const sourcemaps = require("gulp-sourcemaps");
 const concat = require("gulp-concat");
@@ -9,14 +8,16 @@ const mmq = require("gulp-merge-media-queries");
 
 // Development Tasks
 gulp.task("sass", function () {
-  return gulp
-    .src("src/scss/**/*.scss") // Gets all files ending with .scss in src/scss and children dirs
-    .pipe(sourcemaps.init())
-    .pipe(sass().on("error", sass.logError)) // Passes it through a gulp-sass, log errors to console
-    // .pipe(cleanCss()) // Minifying the CSS
-    // .pipe(mmq()) // Merging media queries
-    .pipe(sourcemaps.write())
-    .pipe(gulp.dest("src/css")); // Outputs it in the css folder
+  return (
+    gulp
+      .src("src/scss/**/*.scss") // Gets all files ending with .scss in src/scss and children dirs
+      .pipe(sourcemaps.init())
+      .pipe(sass().on("error", sass.logError)) // Passes it through a gulp-sass, log errors to console
+      // .pipe(cleanCss()) // Minifying the CSS
+      // .pipe(mmq()) // Merging media queries
+      .pipe(sourcemaps.write())
+      .pipe(gulp.dest("src/css"))
+  ); // Outputs it in the css folder
 });
 
 // Watchers
@@ -38,7 +39,7 @@ gulp.task("minifycss", function () {
         })
       )
       .pipe(concat("bundle.min.css"))
-
+      .pipe(mmq()) // Merge media queries
       .pipe(cleanCss())
       // Output
       .pipe(gulp.dest("src/css"))
@@ -64,5 +65,8 @@ gulp.task("minifyjs", function () {
       .pipe(gulp.dest("src/js"))
   );
 });
-
 `;
+
+
+
+

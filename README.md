@@ -17,8 +17,7 @@ npm start
 - Sets up SCSS architecture (base, layout, components, pages, utilities, vendors)
 - Includes placeholder files like `index.js`, `style.scss`, `index.html`, and `gulpfile.js`
 - Automatically writes `.gitignore` and `package.json`
-- Optimized media query output:
- When the same media query is used across different SCSS classes, it gets grouped into a single block in the final CSS after compilation.
+- Optimized media query output: When you run the command gulp minifycss in the terminal, it takes your CSS file and combines all the same media queries into one group. This makes your CSS cleaner and easier to read. Then, it makes the CSS file smaller by removing extra spaces and unnecessary code. Finally, it saves the smaller, improved file as bundle.min.css, ready to use for your website.
 
  ```
  .card {
