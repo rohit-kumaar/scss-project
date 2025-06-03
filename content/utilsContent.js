@@ -1,9 +1,9 @@
-export const utilsContent = `
-@use "variables" as *;
+export const utilsContent = `@use "variables" as *;
 
-/* ------------------- */
-/* Colors Start        */
-/* ------------------- */
+/* -----------------*/
+/* Start : Colors   */
+/* -----------------*/
+
 $colors: (
   primary: (
     50: hsl(0, 86%, 97%),
@@ -36,73 +36,7 @@ $colors: (
   }
 }
 
-/* ------------------- */
-/* Font weights Start  */
-/* ------------------- */
-$fonts-weights: (
-  weights: (
-    400: $fw-400,
-    500: $fw-500,
-    600: $fw-600,
-    700: $fw-700,
-    800: $fw-800,
-    900: $fw-900,
-  ),
-);
-
-@each $fonts-weight, $weights in $fonts-weights {
-  @each $weight, $value in $weights {
-    .fw-#{$value} {
-      font-weight: $value;
-    }
-  }
-}
-
-/* ------------------- */
-/* Font sizes Start    */
-/* ------------------- */
-$font-sizes: (
-  fonts: (
-    "10": $fs-10,
-    "11": $fs-11,
-    "12": $fs-12,
-    "13": $fs-13,
-    "14": $fs-14,
-    "15": $fs-15,
-  ),
-);
-
-@each $fonts-size, $fonts in $font-sizes {
-  @each $font, $value in $fonts {
-    .fs-#{$font} {
-      font-size: $value;
-    }
-  }
-}
-
-/* ------------------- */
-/* Z-index             */
-/* ------------------- */
-$z-indexes: (
-  indexes: (
-    -1: $z-index0,
-    1: $z-index1,
-    2: $z-index2,
-    3: $z-index3,
-    4: $z-index4,
-    5: $z-index5,
-  ),
-);
-
-@each $z-index, $indexes in $z-indexes {
-  @each $index, $value in $indexes {
-    .z-#{$value} {
-      z-index: $value;
-    }
-  }
-}
-
-
-
-
+/* -----------------*/
+/* End   : Colors   */
+/* -----------------*/
 `;
