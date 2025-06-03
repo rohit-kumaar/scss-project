@@ -39,17 +39,8 @@ export const indexHtmlContent = `<!DOCTYPE html>
   </main>
   <!-- End   : main -->
 
-  <!-- Start : Owl Carousel -->
-  <script src="src/js/jquery/jquery.min.js"></script>
-  <script src="src/js/owl_carousel/owl.carousel.min.js"></script>
-  <!-- End   : Owl Carousel -->
-
-  <!-- Start : Bootstrap  JS -->
-  <script src="src/js/bootstrap/bootstrap.bundle.min.js"></script> 
-  <!-- End   : Bootstrap  JS -->
-
   <!-- Start : Custom JS -->
-  <script src="src/js/index.js"></script>
+  <script type="module" src="src/js/index.js"></script>
   <!-- End   : Custom JS -->
 </body>
 
