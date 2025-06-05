@@ -2,6 +2,15 @@
 
 scss-project is a command-line tool that helps you quickly set up a ready-to-use frontend project. It creates a clean folder structure with organized SCSS files, along with starter files for HTML, JavaScript, and Gulp tasks. This makes it easy to start building modern websites with a clear and maintainable layout.
 
+## 🛠 Troubleshooting
+Error: Cannot find module 'scss-project'
+
+If you see this error while using the tool via npx or trying to link locally, install it globally:
+
+```
+npm install -g scss-project
+```
+
 ## 🚀 Installation
 
 ```bash
