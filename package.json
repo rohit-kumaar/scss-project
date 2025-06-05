@@ -1,14 +1,14 @@
 {
   "name": "scss-project",
-  "version": "1.16.35",
+  "version": "1.16.36",
   "description": "A CLI tool to scaffold SCSS-based frontend projects.",
-  "main": "index.js",
+  "main": "index.mjs",
   "bin": {
-    "scss-project": "index.js"
+    "scss-project": "index.mjs"
   },
   "type": "module",
   "files": [
-    "index.js",
+    "index.mjs",
     "content/",
     "icons/"
   ],
