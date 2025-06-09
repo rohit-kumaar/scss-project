@@ -28,6 +28,10 @@ npm start
 - Automatically writes `.gitignore` and `package.json`
 - Optimized media query output: When you run the command gulp minifycss in the terminal, it takes your CSS file and combines all the same media queries into one group. This makes your CSS cleaner and easier to read. Then, it makes the CSS file smaller by removing extra spaces and unnecessary code. Finally, it saves the smaller, improved file as bundle.min.css, ready to use for your website.
 
+```
+gulp minifycss
+```
+
  ```
  .card {
   padding: 1rem;
@@ -132,6 +136,6 @@ my-scss-project/
    - Writes all predefined file templates.
    - Displays progress with `chalk`-styled output.
 
-## 📄 License
-
-MIT
+## 🔗 Links
+[![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://rohitkumar.netlify.app/)
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/-rohit-kumaar/)
