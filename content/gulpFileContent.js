@@ -38,7 +38,7 @@ gulp.task("minifycss", function () {
           onError: console.error.bind(console, "Sass error:"),
         })
       )
-      .pipe(concat("bundle.min.css"))
+      .pipe(concat("style.css"))
       .pipe(mmq()) // Merge media queries
       .pipe(cleanCss())
       // Output
