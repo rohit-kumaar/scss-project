@@ -76,20 +76,14 @@ if (command === "generate" || command === "g") {
   if (folderPath) {
     const dirBaseName = path.basename(folderPath); // e.g., 'layout'
     const dirImportFile = path.join(targetDir, `__${dirBaseName}-dir.scss`);
-    const importStatement = `@use "${fileName}";`;
+    const importStatement = `@use "${fileName}";\n`;
 
     if (fs.existsSync(dirImportFile)) {
       const currentContent = fs.readFileSync(dirImportFile, "utf8");
-      const lines = currentContent
-        .split("\n")
-        .map((line) => line.trim())
-        .filter((line) => line.length > 0);
 
-      // Avoid duplicates
-      if (!lines.includes(importStatement)) {
-        lines.push(importStatement);
-        const sortedLines = lines.sort((a, b) => a.localeCompare(b));
-        fs.writeFileSync(dirImportFile, sortedLines.join("\n") + "\n", "utf8");
+      if (!currentContent.includes(importStatement.trim())) {
+        const newContent = importStatement + currentContent;
+        fs.writeFileSync(dirImportFile, newContent, "utf8");
         console.log(chalk.gray(`🔗 Updated: ${path.basename(dirImportFile)} with @use "${fileName}"`));
       } else {
         console.log(chalk.gray(`ℹ️  Import already exists in ${path.basename(dirImportFile)}`));
