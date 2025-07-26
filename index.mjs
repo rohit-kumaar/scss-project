@@ -35,7 +35,78 @@ import { vendorsDirContent } from "./content/vendorsDirContent.js";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const projectName = process.argv[2];
+/* -------------------------------- */
+/* START : Generate File Using Cmd  */
+/* -------------------------------- */
+
+const command = process.argv[2];
+const argument = process.argv[3];
+
+if (command === "generate" || command === "g") {
+  if (!argument) {
+    console.log("❗ Please specify a path. Example: scss-project generate pages/about");
+    process.exit(1);
+  }
+
+  // Split the input like "layout/footer"
+  const inputPath = argument.split("/");
+  const fileName = inputPath.pop(); // e.g., "footer"
+  const folderPath = inputPath.join("/"); // e.g., "layout"
+
+  const targetDir = path.join(process.cwd(), "src/scss", folderPath);
+  const targetFile = path.join(targetDir, `_${fileName}.scss`);
+
+  // Create folder if it doesn't exist
+  if (!fs.existsSync(targetDir)) {
+    fs.mkdirSync(targetDir, { recursive: true });
+  }
+
+  // File content
+  const content = `@use "utilities/__utilities-dir" as *;\n\n.${fileName} {\n  // styles here\n}\n`;
+
+  // Write file if it doesn't already exist
+  if (fs.existsSync(targetFile)) {
+    console.log(chalk.yellow(`⚠️  File already exists: src/scss/${folderPath}/_${fileName}.scss`));
+  } else {
+    fs.writeFileSync(targetFile, content, "utf8");
+    console.log(chalk.green(`✅ Created: src/scss/${folderPath}/_${fileName}.scss`));
+  }
+
+  // === Auto-import into __*-dir.scss
+  if (folderPath) {
+    const dirBaseName = path.basename(folderPath); // e.g., 'layout'
+    const dirImportFile = path.join(targetDir, `__${dirBaseName}-dir.scss`);
+    const importStatement = `@use "${fileName}";`;
+
+    if (fs.existsSync(dirImportFile)) {
+      const currentContent = fs.readFileSync(dirImportFile, "utf8");
+      const lines = currentContent
+        .split("\n")
+        .map((line) => line.trim())
+        .filter((line) => line.length > 0);
+
+      // Avoid duplicates
+      if (!lines.includes(importStatement)) {
+        lines.push(importStatement);
+        const sortedLines = lines.sort((a, b) => a.localeCompare(b));
+        fs.writeFileSync(dirImportFile, sortedLines.join("\n") + "\n", "utf8");
+        console.log(chalk.gray(`🔗 Updated: ${path.basename(dirImportFile)} with @use "${fileName}"`));
+      } else {
+        console.log(chalk.gray(`ℹ️  Import already exists in ${path.basename(dirImportFile)}`));
+      }
+    } else {
+      console.log(chalk.yellow(`⚠️  Could not find ${dirImportFile} to auto-import. Skipped.`));
+    }
+  }
+
+  process.exit(0);
+}
+
+/* -------------------------------- */
+/* END   : Generate File Using Cmd  */
+/* -------------------------------- */
+
+const projectName = command;
 
 if (!projectName) {
   console.log("❗ Usage: scss-project <project-name>");
@@ -52,9 +123,9 @@ const packageContent = `{
   "main": "index.js",
   "scripts": {
     "start": "gulp watch",
-    "gulp-minifycss": "gulp minifycss",
-    "gulp-minifyjs": "gulp minifyjs",
-    "build": "concurrently \\\"npm run gulp-minifycss\\\" \\\"npm run gulp-minifyjs\\\""
+    "gulp-minifyCss": "gulp minifyCss",
+    "gulp-minifyJs": "gulp minifyJs",
+    "build": "concurrently \\\"npm run gulp-minifyCss\\\" \\\"npm run gulp-minifyJs\\\""
   },
   "keywords": [],
   "author": "",
@@ -93,16 +164,10 @@ function createFolders(paths) {
 try {
   if (fs.existsSync(projectPath)) {
     if (!forceFlag) {
-      console.log(
-        chalk.red(
-          `❌ Folder "${projectName}" already exists. Use --force to overwrite.`
-        )
-      );
+      console.log(chalk.red(`❌ Folder "${projectName}" already exists. Use --force to overwrite.`));
       process.exit(1);
     } else {
-      console.log(
-        chalk.yellow(`⚠️  Overwriting existing folder "${projectName}"`)
-      );
+      console.log(chalk.yellow(`⚠️  Overwriting existing folder "${projectName}"`));
       fs.rmSync(projectPath, { recursive: true, force: true });
     }
   }
@@ -143,11 +208,7 @@ try {
       console.log(chalk.gray(`🖼️  Copied ${file} to src/icons/`));
     });
   } else {
-    console.warn(
-      chalk.yellow(
-        "⚠️  No 'icons' directory found in your CLI project to copy icons."
-      )
-    );
+    console.warn(chalk.yellow("⚠️  No 'icons' directory found in your CLI project to copy icons."));
   }
 
   // === File Definitions ===
@@ -157,9 +218,9 @@ try {
 
     // JS
     [`${projectPath}/src/js/index.js`, indexJsContent],
-    [`${projectPath}/src/js/bootstrap/bootstrap.bundle.min.js`,bootstrapBundleMinJsContent],
+    [`${projectPath}/src/js/bootstrap/bootstrap.bundle.min.js`, bootstrapBundleMinJsContent,],
     [`${projectPath}/src/js/jquery/jquery.min.js`, jqueryMinJsContent],
-    [`${projectPath}/src/js/owl_carousel/owl.carousel.min.js`, owlCarouselMinJsContent],
+    [`${projectPath}/src/js/owl_carousel/owl.carousel.min.js`, owlCarouselMinJsContent,],
 
     // SCSS Main Entry
     [`${projectPath}/src/scss/style.scss`, styleScssContent],
@@ -172,10 +233,7 @@ try {
     // SCSS Components
     [`${projectPath}/src/scss/components/ui/__ui-dir.scss`, uiDirContent],
     [`${projectPath}/src/scss/components/ui/_button.scss`, buttonContent],
-    [
-      `${projectPath}/src/scss/components/__components-dir.scss`,
-      componentsDirContent,
-    ],
+    [`${projectPath}/src/scss/components/__components-dir.scss`, componentsDirContent,],
     [`${projectPath}/src/scss/components/_component-name.scss`, useUtils],
 
     // SCSS Layout
@@ -192,10 +250,7 @@ try {
     [`${projectPath}/src/scss/pages/_login.scss`, useUtils],
 
     // SCSS Utilities
-    [
-      `${projectPath}/src/scss/utilities/__utilities-dir.scss`,
-      utilitiesDirContent,
-    ],
+    [`${projectPath}/src/scss/utilities/__utilities-dir.scss`, utilitiesDirContent,],
     [`${projectPath}/src/scss/utilities/_extend.scss`, extendContent],
     [`${projectPath}/src/scss/utilities/_function.scss`, functionContent],
     [`${projectPath}/src/scss/utilities/_mixins.scss`, ``],
@@ -204,18 +259,9 @@ try {
 
     // SCSS Vendors
     [`${projectPath}/src/scss/vendors/__vendors-dir.scss`, vendorsDirContent],
-    [
-      `${projectPath}/src/scss/vendors/bootstrap/bootstrap.min.css`,
-      bootstrapMinCssContent,
-    ],
-    [
-      `${projectPath}/src/scss/vendors/owl_carousel/owl.carousel.min.css`,
-      owlCarouselMinCssContent,
-    ],
-    [
-      `${projectPath}/src/scss/vendors/owl_carousel/owl.theme.default.min.css`,
-      owlThemeDefaultMinCssContent,
-    ],
+    [`${projectPath}/src/scss/vendors/bootstrap/bootstrap.min.css`, bootstrapMinCssContent,],
+    [`${projectPath}/src/scss/vendors/owl_carousel/owl.carousel.min.css`, owlCarouselMinCssContent,],
+    [`${projectPath}/src/scss/vendors/owl_carousel/owl.theme.default.min.css`, owlThemeDefaultMinCssContent,],
 
     // Root Level
     [`${projectPath}/.gitignore`, gitignoreContent],
@@ -228,8 +274,6 @@ try {
 
   console.log(chalk.green(`✅ Project "${projectName}" created successfully!`));
 } catch (err) {
-  console.error(
-    chalk.red(`❌ Error creating project "${projectName}": ${err.message}`)
-  );
+  console.error(chalk.red(`❌ Error creating project "${projectName}": ${err.message}`));
   process.exit(1);
 }

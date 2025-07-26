@@ -1,1 +1,2 @@
-export const uiDirContent = `@use "button";`;
+export const uiDirContent = `@use "button";
+`;

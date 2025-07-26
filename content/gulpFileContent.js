@@ -26,7 +26,7 @@ gulp.task("watch", function () {
 });
 
 // Gulp task to minify CSS files
-gulp.task("minifycss", function () {
+gulp.task("minifyCss", function () {
   return (
     gulp
       .src(["src/css/style.css"])
@@ -47,7 +47,7 @@ gulp.task("minifycss", function () {
 });
 
 // Gulp task to minify JavaScript files
-gulp.task("minifyjs", function () {
+gulp.task("minifyJs", function () {
   return (
     gulp
       .src(["src/js/index.js"])

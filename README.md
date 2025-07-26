@@ -11,12 +11,24 @@ npm i
 npm start
 ```
 
-## 🛠 Troubleshooting
+## 🚧 Create SCSS Files via Command
+
+```bash
+scss-project g foldername/filename
+```
+
+📦 This will:
+
+- 🔧 Create src/scss/foldername/\_filename.scss
+- ✍️ Add boilerplate SCSS with @use "utilities/\_\_utilities-dir"
+- 🔗 Auto-import into \_\_\*-dir.scss (sorted alphabetically)
+
+## 🛠️ Troubleshooting
 
 Error: Cannot find module 'scss-project'
 If you see this error while using the tool via npx or trying to link locally, install it globally:
 
-```
+```bash
 npm install -g scss-project
 ```
 
