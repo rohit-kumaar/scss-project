@@ -5,6 +5,7 @@ Scss project is a command-line tool that helps you quickly set up a ready-to-use
 ## 🚀 Installation
 
 ```bash
+npm install -g scss-project
 npx scss-project <project-name>
 cd <project-name>
 npm i
@@ -22,15 +23,6 @@ scss-project g foldername/filename
 - 🔧 Create src/scss/foldername/\_filename.scss
 - ✍️ Add boilerplate SCSS with @use "utilities/\_\_utilities-dir"
 - 🔗 Auto-import into \_\_\*-dir.scss (sorted alphabetically)
-
-## 🛠️ Troubleshooting
-
-Error: Cannot find module 'scss-project'
-If you see this error while using the tool via npx or trying to link locally, install it globally:
-
-```bash
-npm install -g scss-project
-```
 
 ## 📦 Features
 
