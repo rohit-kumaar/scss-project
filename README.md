@@ -40,7 +40,7 @@ npm install -g scss-project
 - Automatically writes `.gitignore` and `package.json`
 - Optimized media query output: When you run the command gulp minifycss in the terminal, it takes your CSS file and combines all the same media queries into one group. This makes your CSS cleaner and easier to read. Then, it makes the CSS file smaller by removing extra spaces and unnecessary code. Finally, it saves the smaller, improved file as bundle.min.css, ready to use for your website.
 
-```
+```bash
 gulp minifycss
 ```
 
