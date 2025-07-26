@@ -1,15 +1,6 @@
 # 📁 Create SCSS Folder Structure
 
-scss-project is a command-line tool that helps you quickly set up a ready-to-use frontend project. It creates a clean folder structure with organized SCSS files, along with starter files for HTML, JavaScript, and Gulp tasks. This makes it easy to start building modern websites with a clear and maintainable layout.
-
-## 🛠 Troubleshooting
-Error: Cannot find module 'scss-project'
-
-If you see this error while using the tool via npx or trying to link locally, install it globally:
-
-```
-npm install -g scss-project
-```
+Scss project is a command-line tool that helps you quickly set up a ready-to-use frontend project. It creates a clean folder structure with organized SCSS files, along with starter files for HTML, JavaScript, and Gulp tasks. This makes it easy to start building modern websites with a clear and maintainable layout.
 
 ## 🚀 Installation
 
@@ -18,6 +9,15 @@ npx scss-project <project-name>
 cd <project-name>
 npm i
 npm start
+```
+
+## 🛠 Troubleshooting
+
+Error: Cannot find module 'scss-project'
+If you see this error while using the tool via npx or trying to link locally, install it globally:
+
+```
+npm install -g scss-project
 ```
 
 ## 📦 Features
@@ -32,44 +32,46 @@ npm start
 gulp minifycss
 ```
 
- ```
- .card {
-  padding: 1rem;
+```
+.card {
+ padding: 1rem;
 
-  @media (max-width: 768px) {
-    padding: 0.5rem;
-  }
+ @media (max-width: 768px) {
+   padding: 0.5rem;
+ }
 }
 
 .header {
-  font-size: 2rem;
+ font-size: 2rem;
 
-  @media (max-width: 768px) {
-    font-size: 1.5rem;
-  }
+ @media (max-width: 768px) {
+   font-size: 1.5rem;
+ }
 }
 
- ```
- Compiles to:
- ```
- .card {
-  padding: 1rem;
+```
+
+Compiles to:
+
+```
+.card {
+ padding: 1rem;
 }
 
 .header {
-  font-size: 2rem;
+ font-size: 2rem;
 }
 
 @media (max-width: 768px) {
-  .card {
-    padding: 0.5rem;
-  }
-  .header {
-    font-size: 1.5rem;
-  }
+ .card {
+   padding: 0.5rem;
+ }
+ .header {
+   font-size: 1.5rem;
+ }
 }
 
- ```
+```
 
 ## 📁 Folder Structure Generated
 
@@ -137,5 +139,6 @@ my-scss-project/
    - Displays progress with `chalk`-styled output.
 
 ## 🔗 Links
+
 [![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://rohitkumar.netlify.app/)
 [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/-rohit-kumaar/)

@@ -1,10 +1,19 @@
-export const layoutContent = `// .container {
+export const layoutContent = `/* ------------------------- */
+/* Start : Classic Container */
+/* ------------------------- */
+// .container {
 //   max-width: 1000px;
 //   width: 100%;
 //   padding-inline: 16px;
 //   margin-inline: auto;
 // }
+/* ------------------------- */
+/* End   : Classic Container */
+/* ------------------------- */
 
+/* ------------------------ */
+/* Start : Modern Container */
+/* ------------------------ */
 .container {
   --content: 1200px;
   --mw: 100%;
@@ -14,7 +23,14 @@ export const layoutContent = `// .container {
   padding-inline: 0 !important; // if bootstrap install
   margin-inline: auto;
 }
+/* ------------------------ */
+/* End   : Modern Container */
+/* ------------------------ */
 
+/* -------------------- */
+/* Start : Layout Setup */
+/* -------------------- */
+// Website :- https://ryanmulligan.dev/blog/layout-breakouts/
 .grid-container {
   --width: 1200px;
   --px: 15px;
@@ -36,10 +52,20 @@ export const layoutContent = `// .container {
   }
 }
 
+/* -------------------- */
+/* End   : Layout Setup */
+/* -------------------- */
+
+/* ------------------------------- */
+/* Start : Responsive Grid Wrapper */
+/* ------------------------------- */
 .grid-wrapper {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   grid-auto-rows: 200px;
   gap: 20px;
 }
+/* ------------------------------- */
+/* End   : Responsive Grid Wrapper */
+/* ------------------------------- */
 `;
