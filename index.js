@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 import chalk from "chalk";
-import { generateFile } from "./commands/generate.mjs";
-import { createProject } from "./commands/createProject.mjs";
-import { showHelp } from "./utils/help.mjs";
+import { generateFile } from "./commands/generate.js";
+import { createProject } from "./commands/createProject.js";
+import { showHelp } from "./utils/help.js";
 
 const command = process.argv[2];
 

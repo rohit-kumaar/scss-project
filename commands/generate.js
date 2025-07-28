@@ -1,8 +1,8 @@
 import chalk from "chalk";
 import fs from "fs";
 import path from "path";
-import { validatePath, validateFileName } from "../utils/validate.mjs";
-import { writeFile, ensureDir } from "../utils/fileUtils.mjs";
+import { validatePath, validateFileName } from "../utils/validate.js";
+import { writeFile, ensureDir } from "../utils/fileUtils.js";
 
 export function generateFile(argument) {
     if (!argument) {

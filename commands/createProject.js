@@ -2,9 +2,9 @@ import chalk from "chalk";
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
-import { confirmPrompt } from "../utils/prompt.mjs";
-import { validateProjectName } from "../utils/validate.mjs";
-import { writeFile, ensureDir, copyFiles } from "../utils/fileUtils.mjs";
+import { confirmPrompt } from "../utils/prompt.js";
+import { validateProjectName } from "../utils/validate.js";
+import { writeFile, ensureDir, copyFiles } from "../utils/fileUtils.js";
 import {
     baseContent,
     baseDirContent,
