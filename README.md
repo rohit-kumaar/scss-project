@@ -1,14 +1,14 @@
-## 📁 Create SCSS Folder Structure
+### 📁 Create SCSS Folder Structure
 
 Scss project is a command-line tool that helps you quickly set up a ready-to-use frontend project. It creates a clean folder structure with organized SCSS files, along with starter files for HTML, JavaScript, and Gulp tasks. This makes it easy to start building modern websites with a clear and maintainable layout.
 
-## 🚀 Installation
+### 🚀 Installation
 
 ```bash
 npx scss-project <project-name>
 ```
 
-## 🚧 Create SCSS Files via Command
+### 🚧 Create SCSS Files via Command
 
 ```bash
 scss-project g foldername/filename
@@ -20,7 +20,7 @@ scss-project g foldername/filename
 - ✍️ Add boilerplate SCSS with @use "utilities/\_\_utilities-dir"
 - 🔗 Auto-import into \_\_\*-dir.scss (sorted alphabetically)
 
-## 📦 Features
+### 📦 Features
 
 - Creates a structured folder layout for frontend development
 - Sets up SCSS architecture (base, layout, components, pages, utilities, vendors)
@@ -73,7 +73,7 @@ Compiles to:
 
 ```
 
-## 📁 Folder Structure Generated
+### 📁 Folder Structure Generated
 
 ```
 my-scss-project/
@@ -129,7 +129,7 @@ my-scss-project/
                 └── owl.theme.default.min.css
 ```
 
-## 🧠 How It Works
+### 🧠 How It Works
 
 1. Parses the project name from CLI input.
 2. Verifies if the target directory exists.
@@ -138,7 +138,7 @@ my-scss-project/
    - Writes all predefined file templates.
    - Displays progress with `chalk`-styled output.
 
-## 🔗 Links
+### 🔗 Links
 
 [![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://rohitkumar.netlify.app/)
 [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/-rohit-kumaar/)
