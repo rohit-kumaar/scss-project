@@ -5,11 +5,7 @@ Scss project is a command-line tool that helps you quickly set up a ready-to-use
 ## 🚀 Installation
 
 ```bash
-# npm install -g scss-project
 npx scss-project <project-name>
-# cd <project-name>
-# npm i
-# npm start
 ```
 
 ## 🚧 Create SCSS Files via Command
