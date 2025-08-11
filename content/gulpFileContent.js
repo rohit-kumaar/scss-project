@@ -13,7 +13,7 @@ gulp.task("sass", function () {
       .src("src/scss/**/*.scss") // Gets all files ending with .scss in src/scss and children dirs
       .pipe(sourcemaps.init())
       .pipe(sass().on("error", sass.logError)) // Passes it through a gulp-sass, log errors to console
-      .pipe(cleanCss()) // Minifying the CSS
+      // .pipe(cleanCss()) // Minifying the CSS
       // .pipe(mmq()) // Merging media queries
       .pipe(sourcemaps.write())
       .pipe(gulp.dest("src/css"))
@@ -22,7 +22,7 @@ gulp.task("sass", function () {
 
 // Watchers
 gulp.task("watch", function () {
-  gulp.watch("src/scss/**/*.scss", gulp.series("sass"));
+ return  gulp.watch("src/scss/**/*.scss", gulp.series("sass"));
 });
 
 // Gulp task to minify CSS files

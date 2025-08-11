@@ -1,10 +1,8 @@
 import chalk from "chalk";
+import { execSync } from "child_process";
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
-import { confirmPrompt } from "../utils/prompt.js";
-import { validateProjectName } from "../utils/validate.js";
-import { writeFile, ensureDir, copyFiles } from "../utils/fileUtils.js";
 import {
     baseContent,
     baseDirContent,
@@ -35,11 +33,23 @@ import {
     variablesContent,
     vendorsDirContent,
 } from "../content/index.js";
+import { copyFiles, ensureDir, writeFile } from "../utils/fileUtils.js";
+import { confirmPrompt } from "../utils/prompt.js";
+import { validateProjectName } from "../utils/validate.js";
 
 
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+
+function isCliInstalledGlobally(cliName) {
+    try {
+        execSync(`npm list -g --depth=0 ${cliName}`, { stdio: "ignore" });
+        return true; // Installed globally
+    } catch {
+        return false; // Not installed globally
+    }
+}
 
 export async function createProject(projectName, forceFlag) {
     if (!validateProjectName(projectName)) {
@@ -188,5 +198,28 @@ export async function createProject(projectName, forceFlag) {
         }
     });
 
-    console.log(chalk.green(`✅ Project "${projectName}" created successfully!`));
+     if (!isCliInstalledGlobally("scss-project")) {
+        try {
+            console.log(chalk.blue("🌍 Installing CLI globally..."));
+            execSync("npm install -g scss-project", { stdio: "inherit" });
+            console.log(chalk.green("✅ CLI installed globally!"));
+        } catch (err) {
+            console.error(chalk.red("❌ Failed to install CLI globally."));
+        }
+    } else {
+        console.log(chalk.yellow("⚠️ CLI 'scss-project' already installed globally. Skipping global install."));
+    }
+
+    console.log(chalk.blue("📦 Installing dependencies... This may take a minute ⏳"));
+
+    try {
+        execSync("npm install", { stdio: "inherit", cwd: projectPath });
+        console.log(chalk.green(`🚀 Successfully! created project "${projectName}"`));
+    } catch (error) {
+        console.error(chalk.red("❌ Failed to install dependencies. Please run 'npm install' manually."));
+    }
+
+    console.log(`${chalk.yellow("👉 Get started with the following commands: ")}`);
+    console.log(`${chalk.cyan(`$ cd ${projectName}`)}`);
+    console.log(`${chalk.cyan("$ npm start")}`);
 }
