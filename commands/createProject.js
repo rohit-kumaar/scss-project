@@ -79,26 +79,26 @@ export async function createProject(projectName, forceFlag) {
 
     // Directory structure
     const directories = [
-        `${projectPath}/src/css`,
-        `${projectPath}/src/fonts`,
-        `${projectPath}/src/icons`,
-        `${projectPath}/src/images`,
-        `${projectPath}/src/js`,
-        `${projectPath}/src/js/bootstrap`,
-        `${projectPath}/src/js/jquery`,
-        `${projectPath}/src/js/owl_carousel`,
-        `${projectPath}/src/scss/base`,
-        `${projectPath}/src/scss/components`,
-        `${projectPath}/src/scss/components/ui`,
-        `${projectPath}/src/scss/layout`,
-        `${projectPath}/src/scss/pages`,
-        `${projectPath}/src/scss/utilities`,
-        `${projectPath}/src/scss/vendors`,
-        `${projectPath}/src/scss/vendors/bootstrap`,
-        `${projectPath}/src/scss/vendors/owl_carousel`,
+        "/src/css",
+        "/src/fonts",
+        "/src/icons",
+        "/src/images",
+        "/src/js",
+        "/src/js/bootstrap",
+        "/src/js/jquery",
+        "/src/js/owl_carousel",
+        "/src/scss/base",
+        "/src/scss/components",
+        "/src/scss/components/ui",
+        "/src/scss/layout",
+        "/src/scss/pages",
+        "/src/scss/utilities",
+        "/src/scss/vendors",
+        "/src/scss/vendors/bootstrap",
+        "/src/scss/vendors/owl_carousel",
     ];
 
-    directories.forEach(ensureDir);
+    directories.forEach(dir => ensureDir(path.join(projectPath, dir)));
 
     // Copy icons
     const sourceIconsDir = path.join(__dirname, "../resources/icons");
@@ -111,86 +111,87 @@ export async function createProject(projectName, forceFlag) {
 
     // Package.json content
     const packageContent = `{
-  "name": "${projectName}",
-  "version": "1.0.0",
-  "description": "Your project description",
-  "main": "index.js",
-  "scripts": {
-    "start": "gulp watch",
-    "gulp-minifyCss": "gulp minifyCss",
-    "gulp-minifyJs": "gulp minifyJs",
-    "build": "concurrently \\\"npm run gulp-minifyCss\\\" \\\"npm run gulp-minifyJs\\\""
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "concurrently": "^9.0.0",
-    "gulp": "^4.0.2",
-    "gulp-autoprefixer": "^8.0.0",
-    "gulp-clean-css": "^4.3.0",
-    "gulp-concat": "^2.6.1",
-    "gulp-csso": "^4.0.1",
-    "gulp-merge-media-queries": "^0.2.1",
-    "gulp-minify": "^3.1.0",
-    "gulp-sass": "^6.0.1",
-    "gulp-sourcemaps": "^3.0.0",
-    "sass": "^1.54.5",
-    "gulp-dart-sass": "^1.1.0"
-  }
+            "name": "${projectName}",
+            "version": "1.0.0",
+            "description": "Your project description",
+            "main": "index.js",
+            "scripts": {
+                "start": "gulp watch",
+                "gulp-minifyCss": "gulp minifyCss",
+                "gulp-minifyJs": "gulp minifyJs",
+                "build": "concurrently \\\"npm run gulp-minifyCss\\\" \\\"npm run gulp-minifyJs\\\""
+            },
+            "keywords": [],
+            "author": "",
+            "license": "ISC",
+            "devDependencies": {
+                "concurrently": "^9.0.0",
+                "gulp": "^4.0.2",
+                "gulp-autoprefixer": "^8.0.0",
+                "gulp-clean-css": "^4.3.0",
+                "gulp-concat": "^2.6.1",
+                "gulp-csso": "^4.0.1",
+                "gulp-merge-media-queries": "^0.2.1",
+                "gulp-minify": "^3.1.0",
+                "gulp-sass": "^6.0.1",
+                "gulp-sourcemaps": "^3.0.0",
+                "sass": "^1.54.5",
+                "gulp-dart-sass": "^1.1.0"
+            }
 }`;
 
     // File definitions
     const files = [
         // CSS
-        [`${projectPath}/src/css/style.css`, cssContent],
+        ["src/css/style.css", cssContent],
         // JS
-        [`${projectPath}/src/js/index.js`, indexJsContent],
-        [`${projectPath}/src/js/bootstrap/bootstrap.bundle.min.js`, bootstrapBundleMinJsContent],
-        [`${projectPath}/src/js/jquery/jquery.min.js`, jqueryMinJsContent],
-        [`${projectPath}/src/js/owl_carousel/owl.carousel.min.js`, owlCarouselMinJsContent],
+        ["src/js/index.js", indexJsContent],
+        ["src/js/bootstrap/bootstrap.bundle.min.js", bootstrapBundleMinJsContent],
+        ["src/js/jquery/jquery.min.js", jqueryMinJsContent],
+        ["src/js/owl_carousel/owl.carousel.min.js", owlCarouselMinJsContent],
         // SCSS Main Entry
-        [`${projectPath}/src/scss/style.scss`, styleScssContent],
+        ["src/scss/style.scss", styleScssContent],
         // SCSS Base
-        [`${projectPath}/src/scss/base/__base-dir.scss`, baseDirContent],
-        [`${projectPath}/src/scss/base/_base.scss`, baseContent],
-        [`${projectPath}/src/scss/base/_typography.scss`, typographyContent],
+        ["src/scss/base/__base-dir.scss", baseDirContent],
+        ["src/scss/base/_base.scss", baseContent],
+        ["src/scss/base/_typography.scss", typographyContent],
         // SCSS Components
-        [`${projectPath}/src/scss/components/ui/__ui-dir.scss`, uiDirContent],
-        [`${projectPath}/src/scss/components/ui/_button.scss`, buttonContent],
-        [`${projectPath}/src/scss/components/__components-dir.scss`, componentsDirContent],
-        [`${projectPath}/src/scss/components/_component-name.scss`, useUtils],
+        ["src/scss/components/ui/__ui-dir.scss", uiDirContent],
+        ["src/scss/components/ui/_button.scss", buttonContent],
+        ["src/scss/components/__components-dir.scss", componentsDirContent],
+        ["src/scss/components/_component-name.scss", useUtils],
         // SCSS Layout
-        [`${projectPath}/src/scss/layout/__layout-dir.scss`, layoutDirContent],
-        [`${projectPath}/src/scss/layout/_footer.scss`, useUtils],
-        [`${projectPath}/src/scss/layout/_header.scss`, useUtils],
-        [`${projectPath}/src/scss/layout/_layout.scss`, layoutContent],
-        [`${projectPath}/src/scss/layout/_main.scss`, useUtils],
-        [`${projectPath}/src/scss/layout/_navigation.scss`, useUtils],
-        [`${projectPath}/src/scss/layout/_sidebar.scss`, useUtils],
+        ["src/scss/layout/__layout-dir.scss", layoutDirContent],
+        ["src/scss/layout/_footer.scss", useUtils],
+        ["src/scss/layout/_header.scss", useUtils],
+        ["src/scss/layout/_layout.scss", layoutContent],
+        ["src/scss/layout/_main.scss", useUtils],
+        ["src/scss/layout/_navigation.scss", useUtils],
+        ["src/scss/layout/_sidebar.scss", useUtils],
         // SCSS Pages
-        [`${projectPath}/src/scss/pages/__pages-dir.scss`, pagesDirContent],
-        [`${projectPath}/src/scss/pages/_login.scss`, useUtils],
+        ["src/scss/pages/__pages-dir.scss", pagesDirContent],
+        ["src/scss/pages/_login.scss", useUtils],
         // SCSS Utilities
-        [`${projectPath}/src/scss/utilities/__utilities-dir.scss`, utilitiesDirContent],
-        [`${projectPath}/src/scss/utilities/_extend.scss`, extendContent],
-        [`${projectPath}/src/scss/utilities/_function.scss`, functionContent],
-        [`${projectPath}/src/scss/utilities/_mixins.scss`, ``],
-        [`${projectPath}/src/scss/utilities/_utils.scss`, utilsContent],
-        [`${projectPath}/src/scss/utilities/_variables.scss`, variablesContent],
+        ["src/scss/utilities/__utilities-dir.scss", utilitiesDirContent],
+        ["src/scss/utilities/_extend.scss", extendContent],
+        ["src/scss/utilities/_function.scss", functionContent],
+        ["src/scss/utilities/_mixins.scss", ``],
+        ["src/scss/utilities/_utils.scss", utilsContent],
+        ["src/scss/utilities/_variables.scss", variablesContent],
         // SCSS Vendors
-        [`${projectPath}/src/scss/vendors/__vendors-dir.scss`, vendorsDirContent],
-        [`${projectPath}/src/scss/vendors/bootstrap/bootstrap.min.css`, bootstrapMinCssContent],
-        [`${projectPath}/src/scss/vendors/owl_carousel/owl.carousel.min.css`, owlCarouselMinCssContent],
-        [`${projectPath}/src/scss/vendors/owl_carousel/owl.theme.default.min.css`, owlThemeDefaultMinCssContent],
+        ["src/scss/vendors/__vendors-dir.scss", vendorsDirContent],
+        ["src/scss/vendors/bootstrap/bootstrap.min.css", bootstrapMinCssContent],
+        ["src/scss/vendors/owl_carousel/owl.carousel.min.css", owlCarouselMinCssContent],
+        ["src/scss/vendors/owl_carousel/owl.theme.default.min.css", owlThemeDefaultMinCssContent],
         // Root Level
-        [`${projectPath}/.gitignore`, gitignoreContent],
-        [`${projectPath}/gulpfile.js`, gulpFileContent],
-        [`${projectPath}/index.html`, indexHtmlContent],
-        [`${projectPath}/package.json`, packageContent],
+        [".gitignore", gitignoreContent],
+        ["gulpfile.js", gulpFileContent],
+        ["index.html", indexHtmlContent],
+        ["package.json", packageContent],
     ];
 
-    files.forEach(([filePath, content]) => {
+    files.forEach(([relPath, content]) => {
+        const filePath = path.join(projectPath, relPath);
         if (fs.existsSync(filePath)) {
             console.log(chalk.yellow(`⚠️  File already exists, skipping: ${filePath}`));
         } else {
@@ -198,7 +199,7 @@ export async function createProject(projectName, forceFlag) {
         }
     });
 
-     if (!isCliInstalledGlobally("scss-project")) {
+    if (!isCliInstalledGlobally("scss-project")) {
         try {
             console.log(chalk.blue("🌍 Installing CLI globally..."));
             execSync("npm install -g scss-project", { stdio: "inherit" });
@@ -207,13 +208,13 @@ export async function createProject(projectName, forceFlag) {
             console.error(chalk.red("❌ Failed to install CLI globally."));
         }
     } else {
-        console.log(chalk.yellow("⚠️ CLI 'scss-project' already installed globally. Skipping global install."));
+        console.log(chalk.yellow("⚠️  CLI 'scss-project' already installed globally. Skipping global install."));
     }
 
     console.log(chalk.blue("📦 Installing dependencies... This may take a minute ⏳"));
 
     try {
-        execSync("npm install", { stdio: "inherit", cwd: projectPath });
+        execSync("npm install", { stdio: "ignore", cwd: projectPath });
         console.log(chalk.green(`🚀 Successfully! created project "${projectName}"`));
     } catch (error) {
         console.error(chalk.red("❌ Failed to install dependencies. Please run 'npm install' manually."));
