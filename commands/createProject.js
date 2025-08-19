@@ -111,34 +111,35 @@ export async function createProject(projectName, forceFlag) {
 
     // Package.json content
     const packageContent = `{
-            "name": "${projectName}",
-            "version": "1.0.0",
-            "description": "Your project description",
-            "main": "index.js",
-            "scripts": {
-                "start": "gulp watch",
-                "gulp-minifyCss": "gulp minifyCss",
-                "gulp-minifyJs": "gulp minifyJs",
-                "build": "concurrently \\\"npm run gulp-minifyCss\\\" \\\"npm run gulp-minifyJs\\\""
-            },
-            "keywords": [],
-            "author": "",
-            "license": "ISC",
-            "devDependencies": {
-                "concurrently": "^9.0.0",
-                "gulp": "^4.0.2",
-                "gulp-autoprefixer": "^8.0.0",
-                "gulp-clean-css": "^4.3.0",
-                "gulp-concat": "^2.6.1",
-                "gulp-csso": "^4.0.1",
-                "gulp-merge-media-queries": "^0.2.1",
-                "gulp-minify": "^3.1.0",
-                "gulp-sass": "^6.0.1",
-                "gulp-sourcemaps": "^3.0.0",
-                "sass": "^1.54.5",
-                "gulp-dart-sass": "^1.1.0"
-            }
+  "name": "${projectName}",
+  "version": "1.0.0",
+  "description": "Your project description",
+  "main": "index.js",
+  "scripts": {
+    "start": "gulp watch",
+    "gulp-minifyCss": "gulp minifyCss",
+    "gulp-minifyJs": "gulp minifyJs",
+    "build": "concurrently \\\"npm run gulp-minifyCss\\\" \\\"npm run gulp-minifyJs\\\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^9.0.0",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-csso": "^4.0.1",
+    "gulp-merge-media-queries": "^0.2.1",
+    "gulp-minify": "^3.1.0",
+    "gulp-sass": "^6.0.1",
+    "gulp-sourcemaps": "^3.0.0",
+    "sass": "^1.54.5",
+    "gulp-dart-sass": "^1.1.0"
+  }
 }`;
+
 
     // File definitions
     const files = [
