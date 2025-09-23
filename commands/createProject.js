@@ -125,18 +125,18 @@ export async function createProject(projectName, forceFlag) {
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "concurrently": "^9.0.0",
-    "gulp": "^4.0.2",
-    "gulp-autoprefixer": "^8.0.0",
+    "concurrently": "^9.2.1",
+    "gulp": "^5.0.1",
+    "gulp-autoprefixer": "^10.0.0",
     "gulp-clean-css": "^4.3.0",
     "gulp-concat": "^2.6.1",
     "gulp-csso": "^4.0.1",
+    "gulp-dart-sass": "^1.1.0",
     "gulp-merge-media-queries": "^0.2.1",
     "gulp-minify": "^3.1.0",
     "gulp-sass": "^6.0.1",
     "gulp-sourcemaps": "^3.0.0",
-    "sass": "^1.54.5",
-    "gulp-dart-sass": "^1.1.0"
+    "sass": "^1.93.1"
   }
 }`;
 
