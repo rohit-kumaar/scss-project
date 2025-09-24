@@ -200,6 +200,8 @@ export async function createProject(projectName, forceFlag) {
         }
     });
 
+    console.log(chalk.yellow("Please wait ..."));
+
     if (!isCliInstalledGlobally("scss-project")) {
         try {
             console.log(chalk.blue("🌍 Installing CLI globally..."));
@@ -212,14 +214,24 @@ export async function createProject(projectName, forceFlag) {
         console.log(chalk.yellow("⚠️  CLI 'scss-project' already installed globally. Skipping global install."));
     }
 
-    console.log(chalk.blue("📦 Installing dependencies... This may take a minute ⏳"));
+    console.log(chalk.blue("📦 Dependencies setup..."));
 
-    try {
-        execSync("npm install", { stdio: "ignore", cwd: projectPath });
-        console.log(chalk.green(`🚀 Successfully! created project "${projectName}"`));
-    } catch (error) {
-        console.error(chalk.red("❌ Failed to install dependencies. Please run 'npm install' manually."));
+    const installDeps = await confirmPrompt(
+        chalk.yellow("👉 Do you want to install dependencies now? (y/n): ")
+    );
+
+    if (installDeps) {
+        console.log(chalk.blue("📦 Installing dependencies... This may take a minute ⏳"));
+        try {
+            execSync("npm install", { stdio: "ignore", cwd: projectPath });
+            console.log(chalk.green(`🚀 Successfully! created project "${projectName}"`));
+        } catch (error) {
+            console.error(chalk.red("❌ Failed to install dependencies. Please run 'npm install' manually."));
+        }
+    } else {
+        console.log(chalk.yellow("⚠️ Skipping dependency installation. Run 'npm install' inside the project later."));
     }
+
 
     console.log(`${chalk.yellow("👉 Get started with the following commands: ")}`);
     console.log(`${chalk.cyan(`$ cd ${projectName}`)}`);
