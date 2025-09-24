@@ -1,28 +1,56 @@
 export const buttonContent = `@use "utilities/__utilities-dir" as *;
 
+@mixin btnsType($bd, $bg, $color) {
+  border: 1px solid $bd;
+  background: $bg;
+  color: $color;
+  cursor: pointer;
+  transition: all 500ms;
+
+  &:focus-visible,
+  &:hover {
+    border: 1px solid $bd;
+    background: $color;
+    color: $bg;
+  }
+}
+
 .button {
-  transition: all 300ms;
+  padding: 10px 60px;
+  border: 1px solid transparent;
+  border-radius: 50px;
+  font-size: rem(16);
+  font-weight: 500;
+  user-select: none;
 
   &:focus-visible,
   &:hover {
     > svg {
       > path {
-        // fill: $white;
-        transition: fill 300ms;
+        fill: $white;
+        transition: fill 500ms;
       }
     }
   }
 
-  &-primary {
-    // background: $blue-400;
-    // color: $white;
+  &--primary {
+    @include btnsType($black, $black, $white);
+  }
 
-    &:focus-visible,
-    &:hover {
-      //   border: 1px solid $blue-400;
-      //   background: $white;
-      //   color: $blue-400;
-    }
+  &--secondary {
+    @include btnsType($blue, $blue, $white);
+  }
+
+  &--disable {
+    pointer-events: none;
+  }
+
+  &--transparent {
+    border: 0;
+    background: transparent;
+    color: $black;
+    cursor: pointer;
   }
 }
+
 `;

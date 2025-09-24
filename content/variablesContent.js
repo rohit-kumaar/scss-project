@@ -11,6 +11,7 @@ $ff-serif: "Montserrat", sans-serif;
 /* -----------------*/
 $black: hsl(0, 0%, 0%);
 $white: hsl(0, 0%, 100%);
+$blue: rgb(0, 0, 255);
 /* -----------------*/
 /* End   : Colors   */
 /* -----------------*/
