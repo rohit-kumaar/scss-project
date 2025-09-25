@@ -1,33 +1,36 @@
-## 📁 Create SCSS Folder Structure
+### 📁 Create SCSS Folder Structure
 
-Scss project is a command-line tool that helps you quickly set up a ready-to-use frontend project. It creates a clean folder structure with organized SCSS files, along with starter files for HTML, JavaScript, and Gulp tasks. This makes it easy to start building modern websites with a clear and maintainable layout.
+SCSS Project is a CLI tool that sets up a ready-to-use frontend boilerplate with structured SCSS, HTML, JS, and Gulp tasks for faster, maintainable web development.
 
-## 🚀 Installation
+### 🚀 Installation
 
 ```bash
 npm install -g scss-project
 npx scss-project <project-name>
 ```
+You can use the **scss/** folder with any modern frontend setup like:
+- Angular
+- React
+- Vue
 
-## 🚧 Create SCSS Files via Command
+It provides a modular architecture (base, components, layout, pages, utilities, vendors) for clean, reusable, and maintainable styles.
+You can also add third-party libraries like Bootstrap or Owl Carousel in the vendors/ folder for extended functionality.
+
+### 🚧 Create SCSS Files via Command
 
 ```bash
 scss-project g foldername/filename
 ```
 
-📦 This will:
+This will:
 
 - 🔧 Create src/scss/foldername/\_filename.scss
 - ✍️ Add boilerplate SCSS with @use "utilities/\_\_utilities-dir"
 - 🔗 Auto-import into \_\_\*-dir.scss (sorted alphabetically)
 
-## 📦 Features
+### 📦 Features
 
-- Creates a structured folder layout for frontend development
-- Sets up SCSS architecture (base, layout, components, pages, utilities, vendors)
-- Includes placeholder files like `index.js`, `style.scss`, `index.html`, and `gulpfile.js`
-- Automatically writes `.gitignore` and `package.json`
-- Optimized media query output: When you run the command gulp minifycss in the terminal, it takes your CSS file and combines all the same media queries into one group. This makes your CSS cleaner and easier to read. Then, it makes the CSS file smaller by removing extra spaces and unnecessary code. Finally, it saves the smaller, improved file as bundle.min.css, ready to use for your website.
+Running gulp minifycss merges duplicate media queries, cleans and minifies the CSS, and outputs a smaller, optimized file as bundle.min.css for your website.
 
 ```bash
 gulp minifyCss
@@ -74,10 +77,10 @@ Compiles to:
 
 ```
 
-## 📁 Folder Structure Generated
+### 📁 Folder Structure Generated
 
 ```
-my-scss-project/
+Project/
 ├── .gitignore
 ├── gulpfile.js
 ├── index.html
@@ -129,17 +132,7 @@ my-scss-project/
                 ├── owl.carousel.min.css
                 └── owl.theme.default.min.css
 ```
-
-## 🧠 How It Works
-
-1. Parses the project name from CLI input.
-2. Verifies if the target directory exists.
-3. If not, it:
-   - Creates the full folder tree.
-   - Writes all predefined file templates.
-   - Displays progress with `chalk`-styled output.
-
-## 🔗 Links
+### 🔗 Links
 
 [![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://rohitkumar.netlify.app/)
 [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/-rohit-kumaar/)
