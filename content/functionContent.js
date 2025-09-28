@@ -28,7 +28,7 @@ $fluid-bp: calc(
     ($screen-max-width - $screen-min-width)
 );
 
-@function fs($fs-min, $fs-max) {
+@function fs($fs-min:16, $fs-max:16) {
   @return calc((($fs-min / 16) * 1rem) + ($fs-max - $fs-min) * $fluid-bp);
 }
 // 👉  RESPONSIVE FONT font-size: fs(16,32); 

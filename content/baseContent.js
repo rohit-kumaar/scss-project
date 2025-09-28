@@ -10,6 +10,7 @@ body {
   color: $black;
   background: $white;
   font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
   font-weight: 400;
 }
 
