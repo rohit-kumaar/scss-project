@@ -26,17 +26,46 @@ export const indexHtmlContent = `<!DOCTYPE html>
 
 <body>
   <!-- Start : main -->
-  <main class="container">
-    <h1 class="bg-primary-700 text-primary-50" style="
-          display: grid;
-          place-items: center;
-          height: 100dvh;
-          padding: 30px;
+   <main
+      class="container bg-primary-700"
+      style="
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        height: 100dvh;
+        padding: 30px;
+        font-size: fs(16, 32);
+      "
+    >
+      <h1
+        style="
+          color: white;
           font-size: clamp(0.6875rem, -0.0582rem + 3.7285vw, 3.125rem);
-        ">
-      Welcome! This is your SCSS project.
-    </h1>
-  </main>
+        "
+      >
+        Welcome! This is your SCSS project.
+      </h1>
+
+      <section
+        style="display: flex; flex-wrap: wrap; gap: 20px; padding-inline: 20px"
+      >
+        <button class="button button--primary">Primary</button>
+        <button class="button button--secondary">Secondary</button>
+        <button class="button button--disable">Disable</button>
+        <button class="button button--transparent">Transparent</button>
+      </section>
+
+      <p style="padding-inline: 40px; color: white; text-align: center">
+        For responsive font sizes, please refer to the
+        <b>_function.scss</b> file. All font scaling logic and helper functions
+        are defined there for consistency across the project. For example, you
+        can set a responsive font size like font-size: fs(16, 32);. This will
+        automatically scale the font between 16px and 32px based on the screen
+        size.
+      </p>
+    </main>
   <!-- End   : main -->
 
   <!-- Start : Custom JS -->

@@ -34,11 +34,11 @@ export const buttonContent = `@use "utilities/__utilities-dir" as *;
   }
 
   &--primary {
-    @include btnsType($black, $black, $white);
+    @include btnsType(getColor("black"), getColor("black"), getColor("white"));
   }
 
   &--secondary {
-    @include btnsType($blue, $blue, $white);
+    @include btnsType(getColor("blue"), getColor("blue"), getColor(white));
   }
 
   &--disable {

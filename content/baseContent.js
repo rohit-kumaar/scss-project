@@ -1,4 +1,5 @@
 export const baseContent = `@use "utilities/variables" as *;
+@use "utilities/function" as *;
 
 html {
   box-sizing: border-box;
@@ -7,10 +8,10 @@ html {
 }
 
 body {
-  color: $black;
-  background: $white;
+  color: getColor("black");
+  background: getColor("white");
   font-family: "Montserrat", sans-serif;
-  font-size: 1rem;
+  font-size: rem(16);
   font-weight: 400;
 }
 
@@ -46,11 +47,12 @@ svg {
   height: auto;
 }
 
-// img {
-//   font-style: italic;
-//   vertical-align: middle;
-//   background-repeat: no-repeat;
-//   background-size: cover;
-//   shape-margin: 16px;
-// }
+img {
+  font-style: italic;
+  vertical-align: middle;
+  background-repeat: no-repeat;
+  background-size: cover;
+  shape-margin: 16px;
+}
+
 `;

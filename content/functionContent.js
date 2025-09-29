@@ -1,8 +1,6 @@
 export const functionContent = `@use "utilities/variables" as *;
 
-/* ----------------------------*/
-/* Start : Convert px to rem   */
-/* ----------------------------*/
+// Convert px to rem Start
 @function strip-unit($num) {
   @return calc($num / ($num * 0 + 1));
 }
@@ -10,10 +8,8 @@ export const functionContent = `@use "utilities/variables" as *;
 @function rem($pixels) {
   @return calc(strip-unit($pixels) / $base-rem) * 1rem;
 }
-// 👉 font-size: rem(10); JUST WRITE
-/* ----------------------------*/
-/* End   : Convert px to rem   */
-/* ----------------------------*/
+
+// Convert px to rem End
 
 /* -------------------------- */
 /* Start : Generate Font Size */
@@ -28,11 +24,26 @@ $fluid-bp: calc(
     ($screen-max-width - $screen-min-width)
 );
 
-@function fs($fs-min:16, $fs-max:16) {
+@function fs($fs-min: 16, $fs-max: 16) {
   @return calc((($fs-min / 16) * 1rem) + ($fs-max - $fs-min) * $fluid-bp);
 }
-// 👉  RESPONSIVE FONT font-size: fs(16,32); 
+
 /* ------------------------ */
 /* End : Generate Font Size */
 /* ------------------------ */
+
+/* ----------------- */
+/* Start : Use Color */
+/* ----------------- */
+@function getColor($key: "primary") {
+  @return var(--#{$key});
+}
+
+@function getThemeColor($dark, $light) {
+  @return var(--#{$dark}, var(--#{$light}));
+}
+/* ----------------- */
+/* End   : Use Color */
+/* ----------------- */
+
 `;
