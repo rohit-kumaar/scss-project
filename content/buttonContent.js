@@ -27,18 +27,26 @@ export const buttonContent = `@use "utilities/__utilities-dir" as *;
   &:hover {
     > svg {
       > path {
-        fill: $white;
+        fill: getColor(whiteColor);
         transition: fill 500ms;
       }
     }
   }
 
   &--primary {
-    @include btnsType(getColor("black"), getColor("black"), getColor("white"));
+    @include btnsType(
+      getColor(blackColor),
+      getColor(blackColor),
+      getColor(whiteColor)
+    );
   }
 
   &--secondary {
-    @include btnsType(getColor("blue"), getColor("blue"), getColor(white));
+    @include btnsType(
+      getColor(blueColor),
+      getColor(blueColor),
+      getColor(whiteColor)
+    );
   }
 
   &--disable {
@@ -48,7 +56,7 @@ export const buttonContent = `@use "utilities/__utilities-dir" as *;
   &--transparent {
     border: 0;
     background: transparent;
-    color: $black;
+    color: getColor(blackColor);
     cursor: pointer;
   }
 }

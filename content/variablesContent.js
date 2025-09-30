@@ -5,15 +5,16 @@ export const variablesContent = `@use "sass:map";
 /* ------------------- */
 $theme: (
   light: (
-    "black": hsl(0, 0%, 0%),
-    "white": hsl(0, 0%, 100%),
-    "blue": hsl(240, 100%, 50%),
+    primary: hsl(0, 0%, 100%),
+    blackColor: hsl(0, 0%, 0%),
+    whiteColor: hsl(0, 0%, 100%),
+    blueColor: hsl(240, 100%, 50%),
   ),
 
   dark: (
-    "black": hsl(0, 0%, 100%),
-    "white": hsl(0, 0%, 0%),
-    "blue": hsl(240, 100%, 50%),
+    blackColor: hsl(0, 0%, 100%),
+    whiteColor: hsl(0, 0%, 0%),
+    blueColor: hsl(240, 100%, 50%),
   ),
 );
 /* ------------------- */
@@ -23,11 +24,16 @@ $theme: (
 /* --------------------- */
 /* Start : PRIMARY THEME */
 /* --------------------- */
-:root {
-  @each $name, $value in map.get($theme, light) {
-    --#{$name}: #{$value};
+@if map.has-key($theme, light) {
+  :root {
+    @each $name, $value in map.get($theme, light) {
+      --#{$name}: #{$value};
+    }
   }
+} @else {
+  @error "Theme 'light' not found in $theme map";
 }
+
 /* --------------------- */
 /* End   : PRIMARY THEME */
 /* --------------------- */
@@ -35,11 +41,24 @@ $theme: (
 /* ------------------ */
 /* Start : DARK THEME */
 /* ------------------ */
-.dark {
-  @each $name, $value in map.get($theme, dark) {
-    --#{$name}: #{$value};
+@if map.has-key($theme, dark) {
+  .dark {
+    @each $name, $value in map.get($theme, dark) {
+      --#{$name}: #{$value};
+    }
   }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      @each $name, $value in map.get($theme, dark) {
+        --#{$name}: #{$value};
+      }
+    }
+  }
+} @else {
+  @error "Theme 'dark' not found in $theme map";
 }
+
 /* ------------------ */
 /* End   : DARK THEME */
 /* ------------------ */
@@ -59,13 +78,6 @@ $fs-16: 16px;
 /* Font family         */
 /* ------------------- */
 $ff-serif: "Montserrat", sans-serif;
-
-/* ------------------- */
-/* Colors              */
-/* ------------------- */
-$black: hsl(0, 0%, 0%);
-$white: hsl(0, 0%, 100%);
-$blue: rgb(0, 0, 255);
 
 /* ------------------- */
 /* Font weight         */

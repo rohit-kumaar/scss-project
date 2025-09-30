@@ -8,8 +8,8 @@ html {
 }
 
 body {
-  color: getColor("black");
-  background: getColor("white");
+  color: getColor(blackColor);
+  background: getColor(whiteColor);
   font-family: "Montserrat", sans-serif;
   font-size: rem(16);
   font-weight: 400;
