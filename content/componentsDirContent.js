@@ -1,2 +1,1 @@
-export const componentsDirContent = `@use "ui/__ui-dir";
-@use "component-name";`;
+export const componentsDirContent = `@use "button";`;

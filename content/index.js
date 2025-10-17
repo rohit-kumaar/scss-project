@@ -20,7 +20,6 @@ export { owlThemeDefaultMinCssContent } from "./owlThemeDefaultMinCssContent.js"
 export { pagesDirContent } from "./pagesDirContent.js";
 export { styleScssContent } from "./styleScssContent.js";
 export { typographyContent } from "./typographyContent.js";
-export { uiDirContent } from "./uiDirContent.js";
 export { useUtils } from "./useUtils.js";
 export { utilitiesDirContent } from "./utilitiesDirContent.js";
 export { utilsContent } from "./utilsContent.js";

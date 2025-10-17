@@ -26,7 +26,6 @@ import {
     pagesDirContent,
     styleScssContent,
     typographyContent,
-    uiDirContent,
     useUtils,
     utilitiesDirContent,
     utilsContent,
@@ -89,7 +88,6 @@ export async function createProject(projectName, forceFlag) {
         "/src/js/owl_carousel",
         "/src/scss/base",
         "/src/scss/components",
-        "/src/scss/components/ui",
         "/src/scss/layout",
         "/src/scss/pages",
         "/src/scss/utilities",
@@ -157,10 +155,8 @@ export async function createProject(projectName, forceFlag) {
         ["src/scss/base/_base.scss", baseContent],
         ["src/scss/base/_typography.scss", typographyContent],
         // SCSS Components
-        ["src/scss/components/ui/__ui-dir.scss", uiDirContent],
-        ["src/scss/components/ui/_button.scss", buttonContent],
         ["src/scss/components/__components-dir.scss", componentsDirContent],
-        ["src/scss/components/_component-name.scss", useUtils],
+        ["src/scss/components/_button.scss", buttonContent],
         // SCSS Layout
         ["src/scss/layout/__layout-dir.scss", layoutDirContent],
         ["src/scss/layout/_footer.scss", useUtils],
