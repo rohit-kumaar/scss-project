@@ -39,4 +39,9 @@ export const extendContent = `%flexColumn {
   }
 }
 
+%transition {
+  transition: all 500ms ease-in-out;
+}
+
+
 `;

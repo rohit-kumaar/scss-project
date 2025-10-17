@@ -5,16 +5,35 @@ export const variablesContent = `@use "sass:map";
 /* ------------------- */
 $theme: (
   light: (
-    primary: hsl(0, 0%, 100%),
-    blackColor: hsl(0, 0%, 0%),
-    whiteColor: hsl(0, 0%, 100%),
+    primaryColor: rgb(255, 255, 255),
+    blackColor: rgb(0, 0, 0),
+    whiteColor: rgb(255, 255, 255),
     blueColor: hsl(240, 100%, 50%),
+    blackColor10P: rgba(0, 0, 0, 0.1),
+    blackColor20P: rgba(0, 0, 0, 0.2),
+    blackColor30P: rgba(0, 0, 0, 0.3),
+    blackColor40P: rgba(0, 0, 0, 0.4),
+    blackColor50P: rgba(0, 0, 0, 0.5),
+    blackColor60P: rgba(0, 0, 0, 0.6),
+    blackColor70P: rgba(0, 0, 0, 0.7),
+    blackColor80P: rgba(0, 0, 0, 0.8),
+    blackColor90P: rgba(0, 0, 0, 0.9),
+    whiteColor10P: rgba(255, 255, 255, 0.1),
+    whiteColor20P: rgba(255, 255, 255, 0.2),
+    whiteColor30P: rgba(255, 255, 255, 0.3),
+    whiteColor40P: rgba(255, 255, 255, 0.4),
+    whiteColor50P: rgba(255, 255, 255, 0.5),
+    whiteColor60P: rgba(255, 255, 255, 0.6),
+    whiteColor70P: rgba(255, 255, 255, 0.7),
+    whiteColor80P: rgba(255, 255, 255, 0.8),
+    whiteColor90P: rgba(255, 255, 255, 0.9),
   ),
 
   dark: (
-    blackColor: hsl(0, 0%, 100%),
-    whiteColor: hsl(0, 0%, 0%),
-    blueColor: hsl(240, 100%, 50%),
+    primaryColor: rgb(230, 173, 83),
+    blackColor: rgb(255, 255, 255),
+    whiteColor: rgb(0, 0, 0),
+    blueColor: rgb(0, 0, 255),
   ),
 );
 /* ------------------- */
@@ -113,5 +132,6 @@ $images-path: "../images" !default;
 /* Convert px to rem   */
 /* ------------------- */
 $base-rem: 16 !default;
+
 
 `;

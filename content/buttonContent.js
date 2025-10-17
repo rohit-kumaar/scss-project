@@ -1,11 +1,11 @@
 export const buttonContent = `@use "utilities/__utilities-dir" as *;
 
 @mixin btnsType($bd, $bg, $color) {
+  @extend %transition;
   border: 1px solid $bd;
   background: $bg;
   color: $color;
   cursor: pointer;
-  transition: all 500ms;
 
   &:focus-visible,
   &:hover {
@@ -60,5 +60,6 @@ export const buttonContent = `@use "utilities/__utilities-dir" as *;
     cursor: pointer;
   }
 }
+
 
 `;
