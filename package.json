@@ -1,6 +1,6 @@
 {
   "name": "scss-project",
-  "version": "1.33.52",
+  "version": "1.33.53",
   "description": "A CLI tool to scaffold SCSS-based frontend projects.",
   "main": "index.js",
   "type": "module",
@@ -26,10 +26,19 @@
     "scss-project",
     "gulp",
     "web",
-    "scaffold"
+    "scaffold",
+    "folder"
   ],
-  "author": "Rohit Kumar",
+  "author": {
+    "name": "Rohit Kumar",
+    "url": "https://github.com/rohit-kumaar"
+  },
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rohit-kumaar/scss-project"
+  },
+  "homepage": "https://github.com/rohit-kumaar/scss-project#readme",
   "dependencies": {
     "chalk": "^5.6.2"
   },
