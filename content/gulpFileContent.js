@@ -64,8 +64,7 @@ gulp.task("minifyJs", function () {
       // Output
       .pipe(gulp.dest("src/js"))
   );
-});
-`;
+});`;
 
 
 

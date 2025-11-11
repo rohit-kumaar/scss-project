@@ -45,14 +45,4 @@ svg {
   max-width: 100%;
   width: auto;
   height: auto;
-}
-
-img {
-  font-style: italic;
-  vertical-align: middle;
-  background-repeat: no-repeat;
-  background-size: cover;
-  shape-margin: 16px;
-}
-
-`;
+}`;

@@ -3,7 +3,6 @@ export const utilsContent = `@use "variables" as *;
 /* -----------------*/
 /* Start : Colors   */
 /* -----------------*/
-
 $colors: (
   primary: (
     50: hsl(0, 86%, 97%),
@@ -35,8 +34,6 @@ $colors: (
     }
   }
 }
-
 /* -----------------*/
 /* End   : Colors   */
-/* -----------------*/
-`;
+/* -----------------*/`;

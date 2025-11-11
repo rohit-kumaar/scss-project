@@ -1,2 +1,1 @@
-export const bootstrapBundleMinJsContent = `
- `;
+export const bootstrapBundleMinJsContent = ``;

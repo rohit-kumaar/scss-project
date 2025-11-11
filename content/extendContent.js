@@ -25,6 +25,10 @@ export const extendContent = `%flexColumn {
   place-items: center;
 }
 
+%textCenter {
+  text-align: center;
+}
+
 %customScrollBar {
   &::-webkit-scrollbar {
     width: 6px;
@@ -41,7 +45,4 @@ export const extendContent = `%flexColumn {
 
 %transition {
   transition: all 500ms ease-in-out;
-}
-
-
-`;
+}`;

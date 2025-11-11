@@ -1,2 +1,1 @@
-export const jqueryMinJsContent = `
- `;
+export const jqueryMinJsContent = ``;

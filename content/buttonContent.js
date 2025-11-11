@@ -59,7 +59,4 @@ export const buttonContent = `@use "utilities/__utilities-dir" as *;
     color: getColor(blackColor);
     cursor: pointer;
   }
-}
-
-
-`;
+}`;

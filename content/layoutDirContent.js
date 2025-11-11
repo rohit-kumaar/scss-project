@@ -3,5 +3,4 @@ export const layoutDirContent = `@use "layout";
 @use "main";
 @use "navigation";
 @use "sidebar";
-@use "footer";
-`;
+@use "footer";`;

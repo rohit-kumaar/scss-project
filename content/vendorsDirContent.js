@@ -1,4 +1,3 @@
 export const vendorsDirContent = `@import "../scss/vendors/bootstrap/bootstrap.min.css";
 @import "../scss/vendors/owl_carousel/owl.carousel.min.css";
-@import "../scss/vendors/owl_carousel/owl.theme.default.min.css";
-`;
+@import "../scss/vendors/owl_carousel/owl.theme.default.min.css";`;

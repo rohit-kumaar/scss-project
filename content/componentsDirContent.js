@@ -1,1 +1,1 @@
-export const componentsDirContent = `@use "button";`;
+export const componentsDirContent = ``;

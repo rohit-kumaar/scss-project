@@ -26,6 +26,7 @@ import {
     pagesDirContent,
     styleScssContent,
     typographyContent,
+    uiDirContent,
     useUtils,
     utilitiesDirContent,
     utilsContent,
@@ -35,8 +36,6 @@ import {
 import { copyFiles, ensureDir, writeFile } from "../utils/fileUtils.js";
 import { confirmPrompt } from "../utils/prompt.js";
 import { validateProjectName } from "../utils/validate.js";
-
-
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -90,6 +89,7 @@ export async function createProject(projectName, forceFlag) {
         "/src/scss/components",
         "/src/scss/layout",
         "/src/scss/pages",
+        "/src/scss/ui",
         "/src/scss/utilities",
         "/src/scss/vendors",
         "/src/scss/vendors/bootstrap",
@@ -138,7 +138,6 @@ export async function createProject(projectName, forceFlag) {
   }
 }`;
 
-
     // File definitions
     const files = [
         // CSS
@@ -156,7 +155,6 @@ export async function createProject(projectName, forceFlag) {
         ["src/scss/base/_typography.scss", typographyContent],
         // SCSS Components
         ["src/scss/components/__components-dir.scss", componentsDirContent],
-        ["src/scss/components/_button.scss", buttonContent],
         // SCSS Layout
         ["src/scss/layout/__layout-dir.scss", layoutDirContent],
         ["src/scss/layout/_footer.scss", useUtils],
@@ -168,6 +166,9 @@ export async function createProject(projectName, forceFlag) {
         // SCSS Pages
         ["src/scss/pages/__pages-dir.scss", pagesDirContent],
         ["src/scss/pages/_login.scss", useUtils],
+        // SCSS UI
+        ["src/scss/ui/__ui-dir.scss", uiDirContent],
+        ["src/scss/ui/_buttons.scss", buttonContent],
         // SCSS Utilities
         ["src/scss/utilities/__utilities-dir.scss", utilitiesDirContent],
         ["src/scss/utilities/_extend.scss", extendContent],
@@ -227,7 +228,6 @@ export async function createProject(projectName, forceFlag) {
     } else {
         console.log(chalk.yellow("⚠️ Skipping dependency installation. Run 'npm install' inside the project later."));
     }
-
 
     console.log(`${chalk.yellow("👉 Get started with the following commands: ")}`);
     console.log(`${chalk.cyan(`$ cd ${projectName}`)}`);

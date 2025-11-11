@@ -133,5 +133,4 @@ dist
 .yarn/unplugged
 .yarn/build-state.yml
 .yarn/install-state.gz
-.pnp.*
-`;
+.pnp.*`;

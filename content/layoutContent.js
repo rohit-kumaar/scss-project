@@ -2,9 +2,9 @@ export const layoutContent = `/* ------------------------- */
 /* Start : Classic Container */
 /* ------------------------- */
 // .container {
-//   max-width: 1000px;
+//   max-width: 1200px;
 //   width: 100%;
-//   padding-inline: 16px;
+//   padding-inline: 15px;
 //   margin-inline: auto;
 // }
 /* ------------------------- */
@@ -18,9 +18,7 @@ export const layoutContent = `/* ------------------------- */
   --content: 1200px;
   --mw: 100%;
   --px: calc(15px * 2);
-  max-width: unset !important; // if bootstrap install
   width: min(var(--mw) - var(--px), var(--content));
-  padding-inline: 0 !important; // if bootstrap install
   margin-inline: auto;
 }
 /* ------------------------ */
@@ -67,5 +65,4 @@ export const layoutContent = `/* ------------------------- */
 }
 /* ------------------------------- */
 /* End   : Responsive Grid Wrapper */
-/* ------------------------------- */
-`;
+/* ------------------------------- */`;
