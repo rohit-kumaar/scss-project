@@ -5,6 +5,8 @@ html {
   box-sizing: border-box;
   font-size: 16px;
   color-scheme: light dark;
+  scroll-behavior: smooth;
+  scroll-padding-top: 0;
 }
 
 body {

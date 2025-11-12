@@ -115,9 +115,9 @@ export async function createProject(projectName, forceFlag) {
   "main": "index.js",
   "scripts": {
     "start": "gulp watch",
-    "gulp-minifyCss": "gulp minifyCss",
-    "gulp-minifyJs": "gulp minifyJs",
-    "build": "concurrently \\\"npm run gulp-minifyCss\\\" \\\"npm run gulp-minifyJs\\\""
+    "buildcss": "gulp minifyCss",
+    "buildjs": "gulp minifyJs",
+    "build": "concurrently \\\"npm run buildcss\\\" \\\"npm run buildjs\\\""
   },
   "keywords": [],
   "author": "",
