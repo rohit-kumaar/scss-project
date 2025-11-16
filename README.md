@@ -8,7 +8,9 @@ SCSS Project is a CLI tool that sets up a ready-to-use frontend boilerplate with
 npm install -g scss-project
 npx scss-project <project-name>
 ```
+
 You can use the **scss/** folder with any modern frontend setup like:
+
 - Angular
 - React
 - Vue
@@ -86,6 +88,7 @@ Project/
 ├── index.html
 ├── package.json
 └── src/
+    ├── css/
     ├── fonts/
     ├── icons/
     ├── images/
@@ -101,8 +104,6 @@ Project/
         │   ├── _typography.scss
         │   └── __base-dir.scss
         ├── components/
-        │   ├── _button.scss
-        │   ├── _dropdown.scss
         │   └── __components-dir.scss
         ├── layout/
         │   ├── _footer.scss
@@ -113,9 +114,11 @@ Project/
         │   ├── _sidebar.scss
         │   └── __layout-dir.scss
         ├── pages/
-        │   ├── _contact.scss
         │   ├── _login.scss
         │   └── __pages-dir.scss
+        ├── ui/
+        │   ├── _button.scss
+        │   └── __ui-dir.scss
         ├── utilities/
         │   ├── _extend.scss
         │   ├── _function.scss
@@ -132,7 +135,7 @@ Project/
                 ├── owl.carousel.min.css
                 └── owl.theme.default.min.css
 ```
+
 ### 🔗 Links
 
-[![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://rohitkumar.netlify.app/)
 [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/-rohit-kumaar/)
