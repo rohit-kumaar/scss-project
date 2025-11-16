@@ -1,7 +1,7 @@
 {
   "name": "scss-project",
-  "version": "1.34.55",
-  "description": "A CLI tool to scaffold SCSS-based frontend projects.",
+  "version": "1.34.56",
+  "description": "A lightweight CLI tool that quickly generates a modern frontend project setup with structured SCSS, HTML, JavaScript, and automated Gulp tasks. Perfect for developers who want a ready-to-use SCSS architecture, optimized build workflow, and faster web development.",
   "main": "index.js",
   "type": "module",
   "bin": {
