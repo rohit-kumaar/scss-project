@@ -9,14 +9,14 @@ npm install -g scss-project
 npx scss-project <project-name>
 ```
 
-You can use the **scss/** folder with any modern frontend setup like:
+**You can use the `scss/` folder with any modern frontend setup like:**
 
 - Angular
 - React
 - Vue
 
-It provides a modular architecture (base, components, layout, pages, utilities, vendors) for clean, reusable, and maintainable styles.
-You can also add third-party libraries like Bootstrap or Owl Carousel in the vendors/ folder for extended functionality.
+It provides a modular architecture (base, components, layout, pages, utilities, vendors) for `clean`, `reusable`, and `maintainable` styles.
+You can also add third-party libraries like `Bootstrap` or `Owl Carousel` in the `vendors/` folder for extended functionality.
 
 ### 🚧 Create SCSS Files via Command
 
@@ -35,7 +35,7 @@ This will:
 Running gulp minifycss merges duplicate media queries, cleans and minifies the CSS, and outputs a smaller, optimized file as bundle.min.css for your website.
 
 ```bash
-gulp minifyCss
+npm run buildcss
 ```
 
 ```
@@ -54,7 +54,6 @@ gulp minifyCss
    font-size: 1.5rem;
  }
 }
-
 ```
 
 Compiles to:
@@ -76,7 +75,6 @@ Compiles to:
    font-size: 1.5rem;
  }
 }
-
 ```
 
 ### 📁 Folder Structure Generated
@@ -135,7 +133,3 @@ Project/
                 ├── owl.carousel.min.css
                 └── owl.theme.default.min.css
 ```
-
-### 🔗 Links
-
-[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/-rohit-kumaar/)

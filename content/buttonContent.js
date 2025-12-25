@@ -1,59 +1,51 @@
 export const buttonContent = `@use "utilities/__utilities-dir" as *;
 
-@mixin btnsType($bd, $bg, $color) {
+@mixin btnsType($bg, $color) {
   @extend %transition;
-  border: 1px solid $bd;
   background: $bg;
   color: $color;
-  cursor: pointer;
 
   &:focus-visible,
   &:hover {
-    border: 1px solid $bd;
     background: $color;
     color: $bg;
   }
 }
 
 .button {
-  padding: 10px 60px;
-  border: 1px solid transparent;
+  --_btn-py: 10px;
+  --_btn-px: 60px;
+  padding: var(--_btn-py) var(--_btn-px);
+  border: 1px solid;
   border-radius: 50px;
   font-size: rem(16);
   font-weight: 500;
   user-select: none;
+  cursor: pointer;
 
   &:focus-visible,
   &:hover {
-    > svg {
-      > path {
+    >svg {
+      >path {
         fill: getColor(whiteColor);
         transition: fill 500ms;
       }
     }
   }
 
-  &--primary {
-    @include btnsType(
-      getColor(blackColor),
-      getColor(blackColor),
-      getColor(whiteColor)
-    );
+  &-primary {
+    @include btnsType(getColor(blackColor), getColor(whiteColor));
   }
 
-  &--secondary {
-    @include btnsType(
-      getColor(blueColor),
-      getColor(blueColor),
-      getColor(whiteColor)
-    );
+  &-secondary {
+    @include btnsType(getColor(blueColor), getColor(whiteColor));
   }
 
-  &--disable {
+  &-disable {
     pointer-events: none;
   }
 
-  &--transparent {
+  &-transparent {
     border: 0;
     background: transparent;
     color: getColor(blackColor);

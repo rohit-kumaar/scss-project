@@ -1,5 +1,6 @@
 export const functionContent = `@use "utilities/variables" as *;
 @use "sass:map";
+@use "sass:math";
 
 /* -------------------------- */
 /* Start : Convert px to rem  */
@@ -9,7 +10,7 @@ export const functionContent = `@use "utilities/variables" as *;
 }
 
 @function rem($pixels) {
-  @return calc(strip-unit($pixels) / $base-rem) * 1rem;
+  @return calc(strip-unit($pixels) / $root-font-size) * 1rem;
 }
 /* -------------------------- */
 /* End   : Convert px to rem  */
@@ -18,17 +19,32 @@ export const functionContent = `@use "utilities/variables" as *;
 /* -------------------------- */
 /* Start : Generate Font Size */
 /* -------------------------- */
-// https://utopia.fyi/type/calculator/
-$screen-min-width: 320;
-$screen-max-width: 1440;
-$screen-vw: 100vw;
-$fluid-bp: calc(
-  ($screen-vw - $screen-min-width / 16 * 1rem) /
-    ($screen-max-width - $screen-min-width)
-);
+// Round to 4 decimal places for clean output
+// === Rounding precision ===
+  $rounding-precision: 10000; // For 4 decimal places: 1 / 0.0001 = 10000
+                              // Change to 1000 for 3 decimals, 100000 for 5, etc.
 
-@function fs($fs-min: 16, $fs-max: 16) {
-  @return calc((($fs-min / 16) * 1rem) + ($fs-max - $fs-min) * $fluid-bp);
+@function round($n) {
+  @return math.div(math.round($n * $rounding-precision), $rounding-precision);
+}
+
+/// fs(16, 32) → clamp(1rem, 0.7143rem + 1.4286vw, 2rem)
+@function fs($min-px, $max-px) {
+  // Convert to rem (assuming 16px = 1rem)
+  $min-rem: math.div($min-px, $root-font-size) * 1rem;
+  $max-rem: math.div($max-px, $root-font-size) * 1rem;
+
+  // Slope in vw units
+  $slope: math.div($max-px - $min-px, $max-viewport - $min-viewport) * 100;
+  $slope-rounded: math.div(math.round($slope * $rounding-precision), $rounding-precision);
+
+  // Intercept in rem
+  $intercept-px: $min-px - math.div($max-px - $min-px, $max-viewport - $min-viewport) * $min-viewport;
+  $intercept-rem: math.div($intercept-px, $root-font-size) * 1rem;
+  $intercept-rounded: math.div(math.round($intercept-rem * $rounding-precision), $rounding-precision);
+
+  // Output valid clamp: rem + vw (no invalid tricks)
+  @return clamp(#{$min-rem}, #{$intercept-rounded} + #{$slope-rounded}vw, #{$max-rem});
 }
 /* ------------------------ */
 /* End : Generate Font Size */
@@ -38,12 +54,12 @@ $fluid-bp: calc(
 /* Start : Use Color */
 /* ----------------- */
 @function getColor($key: "primary") {
-  @if map.has-key(map.get($theme, light), $key) or
-    map.has-key(map.get($theme, dark), $key)
-  {
+  @if map.has-key(map.get($theme, light), $key) or map.has-key(map.get($theme, dark), $key) {
     @return var(--#{$key});
-  } @else {
-    @warn "Color '#{$key}' not found in theme";
+  }
+
+  @else {
+    @warn "COLOR '#{$key}' NOT FOUND IN THEME";
     @return null;
   }
 }

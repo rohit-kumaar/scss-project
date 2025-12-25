@@ -26,4 +26,4 @@ export { utilitiesDirContent } from "./utilitiesDirContent.js";
 export { utilsContent } from "./utilsContent.js";
 export { variablesContent } from "./variablesContent.js";
 export { vendorsDirContent } from "./vendorsDirContent.js";
-
+export { mixinsContent } from "./mixinsContent.js";

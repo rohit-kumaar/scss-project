@@ -6,15 +6,15 @@ $theme: (
     blackColor: #000000,
     whiteColor: #ffffff,
     blueColor: #6b6bfe,
-    whiteColor10P: rgba(255, 255, 255, 0.1),
-    whiteColor20P: rgba(255, 255, 255, 0.2),
-    whiteColor30P: rgba(255, 255, 255, 0.3),
-    whiteColor40P: rgba(255, 255, 255, 0.4),
-    whiteColor50P: rgba(255, 255, 255, 0.5),
-    whiteColor60P: rgba(255, 255, 255, 0.6),
-    whiteColor70P: rgba(255, 255, 255, 0.7),
-    whiteColor80P: rgba(255, 255, 255, 0.8),
-    whiteColor90P: rgba(255, 255, 255, 0.9),
+    whiteColor10P: rgba(255, 255, 255, 10%),
+    whiteColor20P: rgba(255, 255, 255, 20%),
+    whiteColor30P: rgba(255, 255, 255, 30%),
+    whiteColor40P: rgba(255, 255, 255, 40%),
+    whiteColor50P: rgba(255, 255, 255, 50%),
+    whiteColor60P: rgba(255, 255, 255, 60%),
+    whiteColor70P: rgba(255, 255, 255, 70%),
+    whiteColor80P: rgba(255, 255, 255, 80%),
+    whiteColor90P: rgba(255, 255, 255, 90%),
   ),
 
   dark: (
@@ -35,8 +35,9 @@ $theme: (
     }
   }
 } @else {
-  @error "Theme 'light' not found in $theme map";
+  @error "THEME 'light' NOT FOUND IN $theme map";
 }
+
 /* --------------------- */
 /* End   : PRIMARY THEME */
 /* --------------------- */
@@ -58,12 +59,15 @@ $theme: (
     }
   }
 } @else {
-  @error "Theme 'dark' not found in $theme map";
+  @error "THEME 'dark' NOT FOUND IN $theme map";
 }
+
 /* ------------------ */
 /* End   : DARK THEME */
 /* ------------------ */
 $ff-serif: "Montserrat", sans-serif;
 $fonts-path: "../fonts" !default;
 $images-path: "../images" !default;
-$base-rem: 16 !default;`;
+$root-font-size: 16 !default;
+$min-viewport: 320;
+$max-viewport: 1440;`;

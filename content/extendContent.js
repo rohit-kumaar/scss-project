@@ -1,4 +1,7 @@
-export const extendContent = `%flexColumn {
+export const extendContent = `@use "utilities/variables" as *;
+@use "utilities/function" as *;
+
+%flexColumn {
   display: flex;
   flex-direction: column;
 }
@@ -32,17 +35,17 @@ export const extendContent = `%flexColumn {
 %customScrollBar {
   &::-webkit-scrollbar {
     width: 6px;
-    background: hsl(0, 0%, 96%);
+    background: getColor(whiteColor);
     border-radius: 10px;
   }
 
   &::-webkit-scrollbar-thumb {
     border-radius: 10px;
-    -webkit-box-shadow: inset 0 0 6px rgba(black, 0.4);
-    background: hsla(206, 100%, 45%, 1);
+    -webkit-box-shadow: inset 0 0 6px rgba(getColor(blackColor), 40%);
+    background: getColor(blueColor);
   }
 }
 
 %transition {
-  transition: all 500ms ease-in-out;
+  transition: all 300ms ease-in-out;
 }`;

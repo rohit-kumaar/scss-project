@@ -13,7 +13,7 @@ body {
   color: getColor(blackColor);
   background: getColor(whiteColor);
   font-family: "Montserrat", sans-serif;
-  font-size: rem(16);
+  font-size: rem($root-font-size);
   font-weight: 400;
 }
 

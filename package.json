@@ -1,6 +1,6 @@
 {
   "name": "scss-project",
-  "version": "1.34.56",
+  "version": "1.35.56",
   "description": "A lightweight CLI tool that quickly generates a modern frontend project setup with structured SCSS, HTML, JavaScript, and automated Gulp tasks. Perfect for developers who want a ready-to-use SCSS architecture, optimized build workflow, and faster web development.",
   "main": "index.js",
   "type": "module",
@@ -21,13 +21,18 @@
   "keywords": [
     "cli",
     "scss",
+    "sass",
     "project-generator",
     "frontend",
     "scss-project",
     "gulp",
     "web",
     "scaffold",
-    "folder"
+    "folder",
+    "Javascript",
+    "Angular",
+    "React",
+    "Vue"
   ],
   "author": {
     "name": "Rohit Kumar",
